@@ -1,0 +1,56 @@
+@import "tailwindcss";
+
+@theme {
+  --color-cream: #F8F4EE;
+  --color-cream-deep: #F0EAE0;
+  --color-cream-dark: #E6DED2;
+  --color-ink: #17120C;
+  --color-ink-light: #251E16;
+  --color-gold: #B5811A;
+  --color-gold-bright: #D09A38;
+  --color-gold-soft: #F0E2C0;
+  --color-sage: #6A7C5E;
+  --color-sage-soft: #E4ECD8;
+  --color-blush: #B07060;
+  --color-blush-soft: #F0E4DE;
+  
+  --font-serif: "Cormorant Garamond", serif;
+  --font-sans: "Jost", sans-serif;
+  --font-mono: "DM Mono", monospace;
+}
+
+@layer base {
+  body {
+    @apply font-sans bg-cream text-ink antialiased;
+  }
+  
+  h1, h2, h3, h4 {
+    @apply font-serif;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  .grain-overlay {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.88' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23n)' opacity='.03'/%3E%3C/svg%3E");
+  }
+
+  /* Improved contrast for small text on dark backgrounds */
+  .dark-contrast-text {
+    @apply text-cream-deep/60 md:text-cream-deep/50;
+  }
+  .dark-contrast-label {
+    @apply text-gold-bright/90 font-medium;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 2px;
+}
+::-webkit-scrollbar-thumb {
+  background: #B5811A;
+}

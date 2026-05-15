@@ -24,8 +24,8 @@ export default function Navbar() {
 
   const navLinks = [
     { name: 'Products', path: '/products' },
-    { name: 'System', path: '/system' },
-    { name: 'Science', path: '/science' },
+    { name: 'Routine', path: '/system' },
+    { name: 'Ingredients', path: '/science' },
     { name: 'About', path: '/about' },
   ];
 
@@ -119,14 +119,14 @@ export default function Navbar() {
                     to="/contact"
                     className="mt-[16px] block w-full font-mono text-[11px] uppercase tracking-[3px] bg-ink text-cream text-center py-[20px] hover:bg-gold-bright transition-colors"
                   >
-                    Clinical Inquiry
+                    Partner Inquiry
                   </Link>
               </motion.div>
             </div>
             
             <div className="mt-auto pb-[40px]">
               <p className="font-mono text-[9px] uppercase tracking-[2px] text-ink/40 mb-[16px] border-b border-ink/5 pb-[16px]">
-                © 2025 Rejo Derma
+                (c) 2026 Rejo Derma
               </p>
               <div className="flex gap-[24px]">
                  <a href="#" className="font-mono text-[9px] uppercase tracking-[2px] text-ink/70 hover:text-gold transition-colors">Instagram</a>

@@ -2,18 +2,27 @@ import { motion } from 'motion/react';
 import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import FadeIn from './FadeIn';
+import { brandVisuals, launchProducts, orderedProducts } from '../data/products';
 
 export default function Hero() {
   return (
     <>
       <section className="relative min-h-[100svh] bg-ink-light pt-16 flex flex-col overflow-hidden">
-        {/* Decorative Overlays */}
+        <motion.img
+          initial={{ scale: 1.15 }}
+          animate={{ scale: 1 }}
+          transition={{ duration: 10, ease: "easeOut" }}
+          src={brandVisuals.homeHero}
+          alt=""
+          className="absolute inset-0 w-full h-full object-cover object-center z-0"
+        />
         <div className="absolute inset-0 pointer-events-none grain-overlay opacity-55 z-0"></div>
-        <div className="absolute inset-0 pointer-events-none z-0 bg-[radial-gradient(ellipse_60%_70%_at_78%_28%,rgba(181,129,26,0.16)_0%,transparent_55%),radial-gradient(ellipse_35%_40%_at_10%_78%,rgba(181,129,26,0.07)_0%,transparent_50%)]"></div>
+        <div className="absolute inset-0 pointer-events-none z-0 bg-gradient-to-r from-ink via-ink/78 to-ink/36"></div>
+        <div className="absolute inset-0 pointer-events-none z-0 bg-gradient-to-t from-ink/55 via-transparent to-ink/24"></div>
 
         <div className="flex-1 px-6 md:px-[52px] pt-[72px] grid grid-cols-1 lg:grid-cols-[1fr_440px] items-end relative z-10 pb-12 gap-0">
           <div className="pb-12">
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, x: -16 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.7, delay: 0.15 }}
@@ -21,42 +30,46 @@ export default function Hero() {
             >
               <div className="w-[28px] h-[1px] bg-gold-bright shrink-0"></div>
               <span className="font-mono text-[9.5px] uppercase tracking-[4px] text-gold-bright">
-                Korean Clinical Skincare · 2025
+                Korean Clinical Skincare / Glow, Repair, Protect
               </span>
             </motion.div>
 
-            <h1 className="font-serif leading-[0.9] tracking-[-2px] mb-2 font-normal">
-              <FadeIn direction="up" delay={0.28} className="block text-[clamp(60px,9vw,124px)] text-cream-deep/90">
+            <h1 className="font-serif leading-[0.85] tracking-[-3px] mb-2 font-normal">
+              <FadeIn direction="up" delay={0.2} duration={1.2} className="block text-[clamp(64px,10vw,142px)] text-cream-deep/95">
                 Precision
               </FadeIn>
-              <FadeIn direction="up" delay={0.36} className="block text-[clamp(60px,9vw,124px)] italic text-gold-bright pl-[52px]">
+              <FadeIn direction="up" delay={0.3} duration={1.2} className="block text-[clamp(64px,10vw,142px)] italic text-gold-bright pl-[52px] -mt-[0.1em]">
                 Skin.
               </FadeIn>
-              <FadeIn direction="up" delay={0.44} className="block text-[clamp(28px,4vw,52px)] font-light text-cream-deep/20 tracking-[-1px] mt-[10px]">
-                Pure Science.
+              <FadeIn direction="up" delay={0.4} duration={1.2} className="block text-[clamp(28px,4vw,56px)] font-light text-cream-deep/20 tracking-[-1.5px] mt-[12px]">
+                Calm Routine.
               </FadeIn>
             </h1>
 
-            <FadeIn delay={0.44}>
-              <p className="text-[14.5px] text-cream-deep/40 leading-[1.9] max-w-[420px] mb-[44px]">
-                A system where every product serves the whole. Nothing exists in isolation. 
-                The SPF protects everything that came before it — and continues working while it does.
+            <FadeIn delay={0.5} duration={1}>
+              <p className="text-[16px] text-cream-deep/45 leading-[1.85] max-w-[480px] mb-[48px]">
+                Korean clinical skincare built to brighten visibly, recover comfortably, and protect daily.
+                Formulated for results, designed for the ritual.
               </p>
             </FadeIn>
 
-            <FadeIn delay={0.58} className="flex flex-wrap items-center gap-[20px]">
-              <Link 
+            <FadeIn delay={0.65} className="flex flex-wrap items-center gap-[24px]">
+              <Link
                 to="/products"
-                className="bg-gold hover:bg-gold-bright hover:gap-[18px] text-ink font-mono text-[9.5px] uppercase tracking-[2.5px] px-[26px] py-[13px] flex items-center gap-[12px] transition-all duration-300 group"
+                className="group relative overflow-hidden bg-gold text-ink font-mono text-[10px] uppercase tracking-[3px] px-[32px] py-[16px] transition-all duration-500"
               >
-                Discover the Masks
-                <ArrowRight size={13} className="group-hover:translate-x-1 transition-transform" />
+                <span className="absolute inset-0 bg-gold-bright translate-x-[-100%] group-hover:translate-x-0 transition-transform duration-500 ease-out"></span>
+                <span className="relative z-10 flex items-center gap-[12px]">
+                  Explore Products
+                  <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+                </span>
               </Link>
-              <Link 
-                to="/about"
-                className="text-cream-deep/35 hover:text-cream-deep/70 border-b border-cream-deep/15 hover:border-cream-deep/45 transition-all font-mono text-[9.5px] uppercase tracking-[2px] pb-[2px]"
+              <Link
+                to="/system"
+                className="group flex items-center gap-3 text-cream-deep/40 hover:text-gold-bright transition-all font-mono text-[10px] uppercase tracking-[2.5px]"
               >
-                Our Philosophy
+                <span className="border-b border-cream-deep/15 group-hover:border-gold-bright pb-1 transition-colors">Build Your Routine</span>
+                <ArrowRight size={12} className="opacity-0 group-hover:opacity-100 transition-all -translate-x-2 group-hover:translate-x-0" />
               </Link>
             </FadeIn>
           </div>
@@ -64,95 +77,74 @@ export default function Hero() {
           <div className="hidden lg:block pb-12">
             <FadeIn delay={0.7} className="flex flex-col">
               <div className="flex items-center gap-[10px] mb-[14px]">
-                <span className="font-mono text-[8.5px] uppercase tracking-[3px] text-cream-deep/20">Launching now</span>
+                <span className="font-mono text-[8.5px] uppercase tracking-[3px] text-cream-deep/20">Hero products</span>
                 <div className="flex-1 h-[1px] bg-cream-deep/5"></div>
               </div>
-              
+
               <div className="space-y-0">
-                {[
-                  { name: 'LumiGlow™ ', type: 'Hydrogel Mask', size: '30g', isNew: true },
-                  { name: 'Intensive ', type: 'Soothing Mask', size: '27ml', isNew: true },
-                ].map((item, idx) => (
-                  <div key={idx} className={`flex items-center group cursor-default py-[14px] border-t border-cream-deep/5 ${item.isNew ? 'border-l-2 border-gold-bright pl-[14px]' : ''}`}>
-                    {item.isNew && <span className="bg-gold-bright text-ink-light text-[7.5px] px-[7px] py-[2px] mr-[10px] font-mono tracking-[1.5px]">NEW</span>}
+                {launchProducts.map((item) => (
+                  <div key={item.slug} className="flex items-center group cursor-default py-[14px] border-t border-cream-deep/5 border-l-2 border-gold-bright pl-[14px]">
+                    <span className="bg-gold-bright text-ink-light text-[7.5px] px-[7px] py-[2px] mr-[10px] font-mono tracking-[1.5px]">NEW</span>
                     <span className="font-serif text-[15px] font-normal text-cream-deep/90 flex-1 leading-[1.2]">
-                      {item.name} <em className="text-gold-bright italic font-serif">{item.type}</em>
+                      {item.displayName}
                     </span>
-                    <span className="font-mono text-[9px] text-cream-deep/20 pl-[12px]">{item.size}</span>
+                    <span className="font-mono text-[9px] text-cream-deep/20 pl-[12px]">{item.capacity}</span>
                   </div>
                 ))}
               </div>
 
               <div className="flex items-center gap-[10px] mb-[14px] mt-[24px]">
-                <span className="font-mono text-[8.5px] uppercase tracking-[3px] text-cream-deep/20">Full range</span>
+                <span className="font-mono text-[8.5px] uppercase tracking-[3px] text-cream-deep/20">Supporting range</span>
                 <div className="flex-1 h-[1px] bg-cream-deep/5"></div>
               </div>
 
               <div className="space-y-0">
-                {[
-                  { name: 'Tranexamic Acid Serum', size: '7ml' },
-                  { name: 'Spotless Brightening Cream', size: '30ml' },
-                  { name: 'Repair Peptide Cream', size: '50ml' },
-                  { name: 'Aqua Repair MTS Serum', size: '50ml' },
-                ].map((item, idx) => (
-                  <div key={idx} className="flex items-center py-[14px] border-t border-cream-deep/5 hover:bg-cream-deep/[0.03] transition-colors">
-                    <span className="font-serif text-[15px] font-normal text-cream-deep/55 flex-1 leading-[1.2]">{item.name}</span>
-                    <span className="font-mono text-[9px] text-cream-deep/20 pl-[12px]">{item.size}</span>
+                {orderedProducts.slice(2, 6).map((item) => (
+                  <div key={item.slug} className="flex items-center py-[14px] border-t border-cream-deep/5 hover:bg-cream-deep/[0.03] transition-colors">
+                    <span className="font-serif text-[15px] font-normal text-cream-deep/55 flex-1 leading-[1.2]">{item.displayName}</span>
+                    <span className="font-mono text-[9px] text-cream-deep/20 pl-[12px]">{item.capacity}</span>
                   </div>
                 ))}
-                <div className="py-[12px] font-mono text-[9px] tracking-[1px] text-cream-deep/20">+ 9 more products in the system →</div>
+                <div className="py-[12px] font-mono text-[9px] tracking-[1px] text-cream-deep/20">
+                  + {orderedProducts.length - 6} more products in the routine {'->'}
+                </div>
               </div>
             </FadeIn>
           </div>
         </div>
 
-        {/* Stats Bar */}
-        <motion.div 
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.1, duration: 1 }}
-          className="px-6 md:px-[52px] py-[18px] border-t border-cream-deep/5 flex gap-0 overflow-x-auto no-scrollbar relative z-10"
-        >
-          {[
-            { n: '2', l: 'Masks launching' },
-            { n: '15', l: 'Total products' },
-            { n: '4', l: 'Korean labs' },
-            { n: '3', l: 'SPF lines' },
-            { n: '100%', l: 'Made in Korea' },
-          ].map((stat, idx) => (
-            <div key={idx} className="flex items-baseline gap-[8px] px-[28px] first:pl-0 border-r border-cream-deep/5 last:border-0 shrink-0">
-              <span className="font-serif text-[26px] text-gold-bright font-normal">{stat.n}</span>
-              <span className="font-mono text-[8.5px] uppercase tracking-[1.5px] text-cream-deep/25">{stat.l}</span>
-            </div>
-          ))}
-        </motion.div>
+        <div className="bg-gold h-10 overflow-hidden flex items-center border-t border-cream-deep/5 relative z-10">
+          <motion.div
+            initial={{ opacity: 0, x: 0 }}
+            animate={{ opacity: 1, x: '-50%' }}
+            transition={{
+              opacity: { delay: 1.1, duration: 1 },
+              x: { duration: 50, repeat: Infinity, ease: 'linear' },
+            }}
+            className="flex whitespace-nowrap items-center"
+          >
+            {[...Array(4)].map((_, loop) => (
+              <div key={loop} className="flex items-center">
+                {[
+                  { n: '2', l: 'Masks launching' },
+                  { n: String(orderedProducts.length), l: 'Total products' },
+                  { n: '5', l: 'Routine steps' },
+                  { n: '6', l: 'Product families' },
+                  { n: '100%', l: 'Made in Korea' },
+                ].map((stat, idx) => (
+                  <div key={`${loop}-${idx}`} className="flex items-center px-[20px] shrink-0">
+                    <span className="font-serif font-semibold text-[16px] text-ink-light leading-none">{stat.n}</span>
+                    <span className="font-mono font-semibold text-[8px] uppercase tracking-[1.7px] text-ink-light/80 ml-[8px]">
+                      {stat.l}
+                    </span>
+                    <span className="w-[3px] h-[3px] rounded-full bg-ink-light/25 ml-[14px]"></span>
+                  </div>
+                ))}
+              </div>
+            ))}
+          </motion.div>
+        </div>
       </section>
-
-      {/* Ticker */}
-      <div className="h-[40px] bg-gold overflow-hidden flex items-center">
-        <motion.div 
-          animate={{ x: [0, -1000] }} 
-          transition={{ repeat: Infinity, duration: 25, ease: 'linear' }}
-          className="flex whitespace-nowrap"
-        >
-          {[...Array(3)].map((_, i) => (
-            <div key={i} className="flex items-center">
-              <span className="font-mono text-[9.5px] tracking-[3px] uppercase text-ink-light px-[26px]">LumiGlow™ Hydrogel Mask</span>
-              <div className="w-[3px] h-[3px] rounded-full bg-ink/20 shrink-0"></div>
-              <span className="font-mono text-[9.5px] tracking-[3px] uppercase text-ink-light px-[26px]">Launching Now</span>
-              <div className="w-[3px] h-[3px] rounded-full bg-ink/20 shrink-0"></div>
-              <span className="font-mono text-[9.5px] tracking-[3px] uppercase text-ink-light px-[26px]">Intensive Soothing Mask</span>
-              <div className="w-[3px] h-[3px] rounded-full bg-ink/20 shrink-0"></div>
-              <span className="font-mono text-[9.5px] tracking-[3px] uppercase text-ink-light px-[26px]">Precision Skin. Pure Science.</span>
-              <div className="w-[3px] h-[3px] rounded-full bg-ink/20 shrink-0"></div>
-              <span className="font-mono text-[9.5px] tracking-[3px] uppercase text-ink-light px-[26px]">Made in Korea</span>
-              <div className="w-[3px] h-[3px] rounded-full bg-ink/20 shrink-0"></div>
-              <span className="font-mono text-[9.5px] tracking-[3px] uppercase text-ink-light px-[26px]">Brightening · Recovery · Firming</span>
-              <div className="w-[3px] h-[3px] rounded-full bg-ink/20 shrink-0"></div>
-            </div>
-          ))}
-        </motion.div>
-      </div>
     </>
   );
 }

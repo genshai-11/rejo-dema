@@ -1,5 +1,5 @@
-import FadeIn from './FadeIn';
 import { Facebook, Instagram, ChevronRight } from 'lucide-react';
+import FadeIn from './FadeIn';
 
 export default function Contact() {
   return (
@@ -14,19 +14,21 @@ export default function Contact() {
             Available through<br /><em className="italic text-gold">official channels.</em>
           </h2>
           <p className="text-[15px] text-ink/60 leading-relaxed max-w-md">
-            This website is an information resource — for product education, ingredient science, and system guidance. 
-            To purchase or enquire, reach out through our official social labs.
+            For product information, routine guidance, retail availability, or professional partnership inquiries,
+            reach out through the official Rejo Derma channels.
           </p>
         </FadeIn>
 
         <FadeIn delay={0.2} className="space-y-4">
           {[
-            { icon: <Facebook size={20} className="text-gold" />, platform: 'Facebook', name: 'Rejo Derma Official', link: '#' },
-            { icon: <Instagram size={20} className="text-gold" />, platform: 'Instagram', name: '@rejoderma.official', link: '#' },
+            { icon: <Facebook size={20} className="text-gold" />, platform: 'Facebook', name: 'Rejo Derma Official', link: 'https://facebook.com/rejoderma' },
+            { icon: <Instagram size={20} className="text-gold" />, platform: 'Instagram', name: '@rejoderma.official', link: 'https://instagram.com/rejoderma.official' },
           ].map((ch, i) => (
-            <a 
+            <a
               key={i}
               href={ch.link}
+              target="_blank"
+              rel="noreferrer"
               className="flex items-center gap-6 p-6 md:p-8 bg-white border border-ink/5 hover:border-gold hover:bg-gold-soft/30 transition-all duration-300 group"
             >
               <div className="bg-cream p-3 rounded-full group-hover:scale-110 transition-transform">
@@ -40,7 +42,7 @@ export default function Contact() {
             </a>
           ))}
           <div className="pt-6 mt-4 border-t border-ink/5 font-mono text-[9px] uppercase tracking-widest text-ink/30 text-center md:text-left">
-            Information website only — all purchases via social channels.
+            For official availability, please use verified Rejo Derma channels.
           </div>
         </FadeIn>
       </div>

@@ -1,10 +1,11 @@
 import FadeIn from './FadeIn';
+import { orderedProducts } from '../data/products';
 
 export default function Story() {
   const stats = [
-    { n: '2', t: 'Launching now', sub: 'LumiGlow™ + Soothing Mask' },
-    { n: '15', t: 'Total products', sub: 'Across five complete sets' },
-    { n: '4', t: 'Lab partners', sub: 'Clinical specialists' }
+    { n: '2', t: 'Launching now', sub: 'Lumiglow Premium + Intensive Soothing' },
+    { n: String(orderedProducts.length), t: 'Total products', sub: 'Organized into one routine' },
+    { n: '4', t: 'Lab partners', sub: 'Clinical specialists' },
   ];
 
   return (
@@ -13,7 +14,7 @@ export default function Story() {
         <FadeIn className="px-10 py-16 border-r border-ink/10 flex flex-col justify-between hidden lg:flex">
           <div className="font-serif text-[52px] font-light leading-[1] tracking-tighter text-ink">
             Precision Skin.<br />
-            <em className="block italic text-gold">Pure Science.</em>
+            <em className="block italic text-gold">Calm Routine.</em>
           </div>
 
           <div className="space-y-0 mt-20">
@@ -31,30 +32,23 @@ export default function Story() {
 
         <FadeIn delay={0.2} direction="right" className="px-10 lg:px-20 py-16">
           <h2 className="font-serif text-3xl md:text-4xl text-ink leading-[1.2] mb-10">
-            The insight came from dermatology, not marketing.
+            The insight starts with routine clarity.
           </h2>
           <div className="space-y-8 text-ink/60 text-[15px] leading-loose max-w-2xl">
             <p>
-              Ask anyone who has tried to fix hyperpigmentation why it came back. 
-              Ask someone who spent real money on laser treatment why their skin looked the 
-              same two months later. 
+              Good products become easier to trust when customers can understand the order,
+              compatibility, and purpose behind each step.
             </p>
             <p>
-              <strong className="text-ink font-medium">The products were fine. What was missing was architecture.</strong>
+              <strong className="text-ink font-medium">The routine is what turns products into a clear skincare experience.</strong>
             </p>
             <p>
-              UV exposure reactivates melanin synthesis faster than any brightening active can suppress it 
-              — which means every laser session loses its results without a sunscreen that works 
-              with the treatment, not just over it.
-            </p>
-            <p>
-              Rejo Derma solved this by formulating dedicated SPF lines — each containing 
-              the active ingredients that extend the routine they belong to. 
-              Not sunscreens applied after treatment. <em className="italic text-gold">Sunscreens that are part of the treatment.</em>
+              Cleansing, brightening, repair, protection, and masks fit into one connected story
+              instead of competing fragments.
             </p>
             <p className="font-serif italic text-lg text-gold pt-4">
-              Because the most important thing a skincare brand can give its customers is not a result. 
-              It is an understanding — of what is actually happening to their skin.
+              Because a strong skincare brand should give customers more than a promise.
+              It should give them a routine they can understand and repeat.
             </p>
           </div>
         </FadeIn>

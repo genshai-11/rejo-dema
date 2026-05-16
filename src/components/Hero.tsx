@@ -65,7 +65,7 @@ export default function Hero() {
                 </span>
               </Link>
               <Link
-                to="/system"
+                to="/routine"
                 className="group flex items-center gap-3 text-cream-deep/40 hover:text-gold-bright transition-all font-mono text-[10px] uppercase tracking-[2.5px]"
               >
                 <span className="border-b border-cream-deep/15 group-hover:border-gold-bright pb-1 transition-colors">Build Your Routine</span>

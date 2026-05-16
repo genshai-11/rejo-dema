@@ -25,7 +25,7 @@ const benefitCards = [
 
 const stepIcons = [Droplets, ScanLine, Sparkles, Leaf, Shield] as const;
 
-export default function SystemPage() {
+export default function RoutinePage() {
   const [activeStepIndex, setActiveStepIndex] = useState(0);
   const activeStep = systemSteps[activeStepIndex];
   const ActiveIcon = stepIcons[activeStepIndex] ?? Droplets;
@@ -52,7 +52,7 @@ export default function SystemPage() {
            {/* Vertical decorative text */}
            <div className="absolute -left-[52px] top-0 h-full hidden 2xl:flex items-center">
             <div className="font-mono text-[9px] uppercase tracking-[5px] text-ink/10 -rotate-90 origin-center whitespace-nowrap">
-              System.Logic.Routine
+              Routine.Logic.System
             </div>
           </div>
 
@@ -84,8 +84,9 @@ export default function SystemPage() {
                 <div className="w-[12px] h-[1px] bg-gold"></div>
                 02. Interaction
               </div>
-              <h2 className="font-serif text-[clamp(28px,3.5vw,46px)] leading-[1.02] text-ink max-w-[15ch]">
-                Choose a step to explore <em className="text-gold italic">the formula logic.</em>
+              <h2 className="font-serif text-[clamp(28px,3.5vw,46px)] leading-[1.02] text-ink">
+                Choose a step to explore <br />
+                <em className="text-gold italic">the formula logic.</em>
               </h2>
             </div>
             <p className="text-[14.5px] text-ink/50 leading-[1.8] max-w-[480px]">
@@ -129,9 +130,9 @@ export default function SystemPage() {
                         </div>
                         <div className="font-mono text-[8.5px] uppercase tracking-[2.5px] text-ink/30">Step 0{step.step}</div>
                       </div>
-                      <div className="font-serif [text-wrap:balance] text-[21px] leading-[1.05] text-ink mb-[8px] max-w-[16ch]">
+                      <div className="font-serif text-[21px] leading-[1.05] text-ink mb-[8px]">
                         {step.label} <br />
-                        <em className={`italic font-serif transition-colors ${isActive ? 'text-gold' : 'text-gold/40 group-hover:text-gold/60'}`}>
+                        <em className={`italic font-serif transition-colors whitespace-nowrap ${isActive ? 'text-gold' : 'text-gold/40 group-hover:text-gold/60'}`}>
                           {step.emphasis}
                         </em>
                       </div>
@@ -274,7 +275,7 @@ export default function SystemPage() {
                 <ArrowRight size={12} />
               </Link>
               <Link
-                to="/science"
+                to="/ingredients"
                 className="inline-flex items-center justify-center gap-[8px] px-[22px] py-[14px] border border-cream-deep/15 text-cream-deep font-mono text-[9px] uppercase tracking-[2px] hover:border-gold-bright hover:text-gold-bright transition-colors"
               >
                 Explore Ingredients

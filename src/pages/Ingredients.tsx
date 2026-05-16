@@ -19,7 +19,7 @@ const ingredientSceneMap: Record<string, string> = {
   'Ferments & Humectants': scienceIngredientSceneVisuals.fermentsHumectants,
 };
 
-export default function SciencePage() {
+export default function IngredientsPage() {
   return (
     <div className="pt-[96px] px-6 md:px-[52px] bg-ink-light text-cream-deep min-h-screen overflow-x-hidden">
       <div className="max-w-7xl mx-auto pb-[96px]">

@@ -39,7 +39,7 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link to="/system" className="text-[13px] md:text-[15px] text-cream-deep/70 hover:text-gold-bright transition-colors block border-b border-cream-deep/10 pb-2">
+                <Link to="/routine" className="text-[13px] md:text-[15px] text-cream-deep/70 hover:text-gold-bright transition-colors block border-b border-cream-deep/10 pb-2">
                   Routine guide
                 </Link>
               </li>
@@ -50,10 +50,10 @@ export default function Footer() {
             <h4 className="font-mono text-[10px] uppercase tracking-[3px] text-gold-bright mb-6 font-bold">Navigate</h4>
             <ul className="space-y-4">
               <li>
-                <Link to="/system" className="text-[13px] md:text-[15px] text-cream-deep/70 hover:text-gold-bright transition-colors block border-b border-cream-deep/10 pb-2">Routine</Link>
+                <Link to="/routine" className="text-[13px] md:text-[15px] text-cream-deep/70 hover:text-gold-bright transition-colors block border-b border-cream-deep/10 pb-2">Routine</Link>
               </li>
               <li>
-                <Link to="/science" className="text-[13px] md:text-[15px] text-cream-deep/70 hover:text-gold-bright transition-colors block border-b border-cream-deep/10 pb-2">Ingredients</Link>
+                <Link to="/ingredients" className="text-[13px] md:text-[15px] text-cream-deep/70 hover:text-gold-bright transition-colors block border-b border-cream-deep/10 pb-2">Ingredients</Link>
               </li>
               <li>
                 <Link to="/about" className="text-[13px] md:text-[15px] text-cream-deep/70 hover:text-gold-bright transition-colors block border-b border-cream-deep/10 pb-2">About</Link>

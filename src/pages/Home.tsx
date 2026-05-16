@@ -336,7 +336,7 @@ export default function Home() {
                   <span className="relative z-10">View Products</span>
                 </Link>
                 <Link
-                  to="/science"
+                  to="/ingredients"
                   className="group inline-flex items-center gap-3 font-mono text-[10px] uppercase tracking-[2.5px] text-cream-deep/60 hover:text-gold transition-all duration-300"
                 >
                   Explore Ingredients

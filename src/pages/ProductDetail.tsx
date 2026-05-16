@@ -1,10 +1,23 @@
 import { Link, Navigate, useParams } from 'react-router-dom';
+import { motion, useScroll, useTransform } from 'motion/react';
+import { useRef } from 'react';
+import { ArrowRight, ChevronRight, Microscope, ShieldCheck, Zap } from 'lucide-react';
 import FadeIn from '../components/FadeIn';
 import ProductImage from '../components/ProductImage';
 import { orderedProducts, productsBySlug } from '../data/products';
 
 export default function ProductDetailPage() {
   const { slug } = useParams<{ slug: string }>();
+  const containerRef = useRef(null);
+  const heroRef = useRef(null);
+
+  const { scrollYProgress } = useScroll({
+    target: heroRef,
+    offset: ["start end", "end start"]
+  });
+
+  const heroScale = useTransform(scrollYProgress, [0, 1], [1, 1.15]);
+  const heroY = useTransform(scrollYProgress, [0, 1], [-20, 20]);
 
   if (!slug || !productsBySlug[slug]) {
     return <Navigate to="/products" replace />;
@@ -21,172 +34,295 @@ export default function ProductDetailPage() {
   const sceneFitClass = product.sceneFit === 'cover' ? 'object-cover' : 'object-contain';
 
   return (
-    <div className="pt-[96px] px-6 md:px-[52px] bg-cream min-h-screen overflow-x-hidden">
-      <div className="max-w-7xl mx-auto pb-[96px]">
-        <div className="border-b border-ink/5 pb-[24px] mb-[40px]">
+    <div ref={containerRef} className="pt-[140px] px-6 md:px-[52px] bg-cream min-h-screen overflow-x-hidden">
+      <div className="max-w-7xl mx-auto pb-[120px]">
+        {/* Navigation Breadcrumb */}
+        <div className="mb-[60px] relative overflow-hidden group">
           <Link
             to="/products"
-            className="inline-flex items-center gap-[10px] font-mono text-[9px] uppercase tracking-[2.4px] text-ink/45 hover:text-gold transition-colors"
+            className="inline-flex items-center gap-[12px] font-mono text-[9px] uppercase tracking-[3px] text-ink/40 hover:text-gold transition-all group/back"
           >
-            <span className="w-[14px] h-[1px] bg-current"></span>
-            Back to Products
+            <span className="w-[20px] h-[1px] bg-ink/10 group-hover/back:w-[30px] group-hover/back:bg-gold transition-all"></span>
+            Catalog Archive
           </Link>
+          <div className="absolute bottom-0 left-0 w-full h-[1px] bg-ink/5"></div>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-[1.08fr_0.92fr] gap-[28px] lg:gap-[56px] items-start mb-[88px]">
-          <FadeIn className="space-y-[18px]">
-            <div className="grid grid-cols-1 md:grid-cols-[minmax(0,1fr)_200px] gap-[18px] items-stretch">
-              <div className="border border-ink/5 bg-cream-dark/60 aspect-[4/5] md:aspect-auto md:min-h-[560px] overflow-hidden">
-                <img
+        <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-[40px] lg:gap-[80px] items-start mb-[120px]">
+          {/* Visual Presentation Section */}
+          <FadeIn className="space-y-[24px]">
+            <div className="grid grid-cols-1 md:grid-cols-[1fr_220px] gap-[24px] items-stretch h-full">
+              <div ref={heroRef} className="relative border border-ink/5 bg-cream-dark/40 aspect-[4/5] md:aspect-auto md:min-h-[620px] overflow-hidden group/hero shadow-2xl">
+                <motion.img
+                  style={{ scale: heroScale, y: heroY }}
                   src={detailScenePath}
                   alt={product.displayName}
-                  className={`w-full h-full ${sceneFitClass} object-center`}
+                  className={`w-full h-full ${sceneFitClass} object-center relative z-10`}
                 />
+
+                <div className="absolute bottom-8 left-8 z-20 flex items-center gap-4">
+                  <div className="font-mono text-[8px] text-white/50 tracking-[3px] uppercase bg-ink/30 backdrop-blur-md px-3 py-1.5 border border-white/10">
+                    Specimen.Analysis // 01
+                  </div>
+                </div>
               </div>
-              <div className="grid grid-cols-2 md:grid-cols-1 md:grid-rows-2 gap-[18px]">
-                <ProductImage
-                  product={product}
-                  className="border border-ink/5 bg-white min-h-[180px]"
-                  imageClassName="scale-[1.01]"
-                />
-                <ProductImage product={product} className="border border-ink/5 bg-gold-soft/35 min-h-[180px]" />
+
+              <div className="grid grid-cols-2 md:grid-cols-1 md:grid-rows-2 gap-[24px]">
+                <motion.div 
+                   whileHover={{ y: -8 }}
+                   className="relative overflow-hidden group/sub"
+                >
+                   <ProductImage
+                    product={product}
+                    className="border border-ink/5 bg-white min-h-[220px] transition-all duration-700"
+                    imageClassName="scale-[1.05] group-hover/sub:scale-110"
+                  />
+                   <div className="absolute top-4 right-4 font-mono text-[7px] text-ink/10 group-hover/sub:text-gold/40 transition-colors uppercase">View.01</div>
+                </motion.div>
+                
+                <motion.div 
+                   whileHover={{ y: -8 }}
+                   className="relative overflow-hidden group/sub"
+                >
+                  <ProductImage product={product} className="border border-ink/5 bg-gold-soft/30 min-h-[220px]" />
+                  <div className="absolute top-4 right-4 font-mono text-[7px] text-ink/10 group-hover/sub:text-gold/40 transition-colors uppercase">View.02</div>
+                </motion.div>
               </div>
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-[12px]">
-              {product.ingredientHighlights.slice(0, 3).map((highlight) => (
-                <div key={highlight} className="border border-ink/5 bg-white px-[14px] py-[16px]">
-                  <div className="font-mono text-[8px] uppercase tracking-[2px] text-ink/35 mb-[10px]">Key Active</div>
-                  <div className="font-serif text-[17px] leading-[1.15] text-ink">{highlight}</div>
-                </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-[16px]">
+              {product.ingredientHighlights.slice(0, 3).map((highlight, idx) => (
+                <motion.div 
+                  key={highlight} 
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ delay: idx * 0.1 }}
+                  viewport={{ once: true }}
+                  className="border border-ink/5 bg-white px-[20px] py-[24px] relative group hover:bg-gold-soft/10 transition-colors"
+                >
+                  <div className="absolute top-4 right-4 text-gold/20 group-hover:text-gold transition-colors">
+                    {idx === 0 ? <Microscope size={14} /> : idx === 1 ? <ShieldCheck size={14} /> : <Zap size={14} />}
+                  </div>
+                  <div className="font-mono text-[8.5px] uppercase tracking-[3px] text-ink/30 mb-[12px]">Logic.0{idx + 1}</div>
+                  <div className="font-serif text-[19px] leading-[1.1] text-ink group-hover:text-gold transition-colors">{highlight}</div>
+                </motion.div>
               ))}
             </div>
           </FadeIn>
 
-          <FadeIn delay={0.12}>
-            <div className="font-mono text-[9.5px] uppercase tracking-[3px] text-gold flex items-center gap-[10px] mb-[14px]">
-              <div className="w-[14px] h-[1px] bg-gold"></div>
-              {product.category}
-            </div>
-            <h1 className="font-serif text-[clamp(32px,4.8vw,58px)] leading-[0.96] tracking-[-0.5px] text-ink mb-[14px]">
-              {product.displayName}
-            </h1>
-            <div className="flex flex-wrap items-center gap-[10px] mb-[20px]">
-              <span className="font-mono text-[8px] uppercase tracking-[2px] px-[10px] py-[4px] bg-sage-soft text-sage">
-                {product.systemRole}
-              </span>
-              <span className="font-mono text-[8px] uppercase tracking-[2px] px-[10px] py-[4px] bg-gold-soft text-ink">
-                {product.capacity}
-              </span>
-              <span className="font-mono text-[8px] uppercase tracking-[2px] px-[10px] py-[4px] border border-ink/10 text-ink/50">
-                {product.availabilityPhase}
-              </span>
-            </div>
-            <p className="font-serif italic text-[20px] leading-[1.45] text-ink-light mb-[18px]">{product.tagline}</p>
-            <p className="text-[14.5px] text-ink/72 leading-[1.9] mb-[18px]">{product.shortDescription}</p>
-            <p className="text-[14.5px] text-ink/72 leading-[1.9] mb-[28px]">{product.detailNarrative}</p>
-
-            <div className="border border-ink/5 bg-white p-[22px] mb-[20px]">
-              <div className="font-mono text-[8.5px] uppercase tracking-[2.4px] text-ink/35 mb-[12px]">Usage Direction</div>
-              <div className="space-y-[10px]">
-                {product.usageNotes.map((note) => (
-                  <p key={note} className="text-[13px] text-ink/68 leading-[1.75]">
-                    {note}
-                  </p>
-                ))}
+          {/* Narrative & Specification Section */}
+          <FadeIn delay={0.15}>
+            <div className="sticky top-[140px]">
+              <div className="font-mono text-[10px] uppercase tracking-[4px] text-gold flex items-center gap-[12px] mb-[20px]">
+                <div className="w-[20px] h-[1px] bg-gold"></div>
+                {product.category}
               </div>
-            </div>
+              
+              <h1 className="font-serif text-[clamp(42px,6vw,72px)] leading-[0.92] tracking-[-2px] text-ink mb-[24px] uppercase">
+                {product.displayName}
+              </h1>
 
-            <div className="grid grid-cols-2 gap-[14px]">
-              <div className="border border-ink/5 bg-gold-soft/45 p-[18px]">
-                <div className="font-mono text-[8px] uppercase tracking-[2px] text-ink/35 mb-[8px]">Official Product Name</div>
-                <div className="text-[13px] leading-[1.7] text-ink/75">{product.exactName}</div>
+              <div className="flex flex-wrap items-center gap-[12px] mb-[32px]">
+                <motion.span 
+                  whileHover={{ scale: 1.05 }}
+                  className="font-mono text-[9px] uppercase tracking-[2.5px] px-[14px] py-[6px] bg-sage/10 text-sage border border-sage/5"
+                >
+                  {product.systemRole}
+                </motion.span>
+                <motion.span 
+                  whileHover={{ scale: 1.05 }}
+                  className="font-mono text-[9px] uppercase tracking-[2.5px] px-[14px] py-[6px] bg-gold/10 text-ink border border-gold/5"
+                >
+                  {product.capacity}
+                </motion.span>
+                <motion.span 
+                  whileHover={{ scale: 1.05 }}
+                  className="font-mono text-[9px] uppercase tracking-[2.5px] px-[14px] py-[6px] border border-ink/10 text-ink/40"
+                >
+                  {product.availabilityPhase}
+                </motion.span>
               </div>
-              <div className="border border-ink/5 bg-cream-dark p-[18px]">
-                <div className="font-mono text-[8px] uppercase tracking-[2px] text-ink/35 mb-[8px]">Routine Role</div>
-                <div className="text-[13px] leading-[1.7] text-ink/75">Designed to support the {product.systemRole.toLowerCase()} step within the Rejo Derma routine.</div>
+
+              <p className="font-serif italic text-[24px] leading-[1.35] text-ink-light mb-[28px] border-l-2 border-gold/30 pl-8">
+                "{product.tagline}"
+              </p>
+              
+              <div className="space-y-[20px] mb-[40px]">
+                <p className="text-[15.5px] text-ink/75 leading-[1.9]">{product.shortDescription}</p>
+                <p className="text-[15.5px] text-ink/75 leading-[1.9]">{product.detailNarrative}</p>
+              </div>
+
+              <motion.div 
+                whileHover={{ x: 5 }}
+                className="border border-ink/5 bg-white p-[32px] mb-[32px] relative overflow-hidden group shadow-sm"
+              >
+                <div className="absolute top-0 right-0 p-8 font-mono text-[9px] text-ink/5">SYSTEM.GUIDE</div>
+                <div className="font-mono text-[9px] uppercase tracking-[3px] text-gold mb-[16px]">Usage Protocol</div>
+                <div className="space-y-[14px]">
+                  {product.usageNotes.map((note, idx) => (
+                    <div key={note} className="flex gap-4">
+                      <span className="font-mono text-[10px] text-gold/40 pt-1">0{idx + 1}</span>
+                      <p className="text-[14px] text-ink/65 leading-[1.8] italic">
+                        {note}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              </motion.div>
+
+              <div className="grid grid-cols-2 gap-[16px]">
+                <div className="border border-ink/5 bg-gold-soft/30 p-[24px] group">
+                  <div className="font-mono text-[8.5px] uppercase tracking-[3px] text-ink/30 mb-[10px]">Dossier Code</div>
+                  <div className="font-serif text-[16px] leading-[1.5] text-ink/80 group-hover:text-gold transition-colors">{product.exactName}</div>
+                </div>
+                <div className="border border-ink/5 bg-cream-dark p-[24px] group">
+                  <div className="font-mono text-[8.5px] uppercase tracking-[3px] text-ink/30 mb-[10px]">Routine Logic</div>
+                  <div className="text-[13.5px] leading-[1.7] text-ink/60 group-hover:text-ink transition-colors">Strategic role in the <span className="text-gold italic font-serif">{product.systemRole}</span> phase.</div>
+                </div>
               </div>
             </div>
           </FadeIn>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-[0.9fr_1.1fr] gap-[28px] lg:gap-[36px] mb-[88px]">
-          <FadeIn className="border border-ink/5 bg-white p-[28px] md:p-[34px]">
-            <div className="font-mono text-[9px] uppercase tracking-[2.4px] text-gold mb-[12px]">Ingredient View</div>
-            <h2 className="font-serif text-[clamp(24px,3vw,34px)] leading-[1.05] text-ink mb-[16px]">
-              Full ingredient list.
-            </h2>
-            {ingredientList.length ? (
-              <div className="flex flex-wrap gap-[8px]">
-                {ingredientList.map((ingredient) => (
-                  <span
-                    key={ingredient}
-                    className="px-[10px] py-[7px] text-[11.5px] leading-[1.45] border border-ink/8 bg-cream text-ink/74"
-                  >
-                    {ingredient}
-                  </span>
-                ))}
-              </div>
-            ) : (
-              <p className="text-[13.5px] text-ink/65 leading-[1.8]">
-                The complete ingredient list for this product is being prepared for publication. Please refer to official Rejo Derma channels for the most current product information.
-              </p>
-            )}
+        {/* Detailed Breakdown Section */}
+        <div className="grid grid-cols-1 lg:grid-cols-[0.9fr_1.1fr] gap-[32px] lg:gap-[48px] mb-[120px]">
+          <FadeIn className="border border-ink/5 bg-white p-[40px] md:p-[56px] relative overflow-hidden group shadow-sm">
+            {/* Background Decorative Text */}
+            <div className="absolute -top-10 -right-10 font-serif text-[200px] text-ink/[0.02] pointer-events-none group-hover:scale-110 transition-transform duration-1000">ING</div>
+            
+            <div className="relative z-10">
+              <div className="font-mono text-[9.5px] uppercase tracking-[4px] text-gold mb-[16px]">02. Molecular Scope</div>
+              <h2 className="font-serif text-[clamp(28px,4vw,42px)] leading-[0.95] text-ink mb-[32px] tracking-[-1.5px] uppercase">
+                Complete <br />
+                <em className="text-gold italic font-serif">Formula list.</em>
+              </h2>
+              
+              {ingredientList.length ? (
+                <div className="flex flex-wrap gap-[10px]">
+                  {ingredientList.map((ingredient, idx) => (
+                    <motion.span
+                      key={ingredient}
+                      initial={{ opacity: 0, scale: 0.95 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      transition={{ delay: idx * 0.02 }}
+                      viewport={{ once: true }}
+                      whileHover={{ scale: 1.05, borderColor: 'rgba(212, 175, 55, 0.4)', color: '#000' }}
+                      className="px-[12px] py-[8px] text-[12px] leading-[1.5] border border-ink/8 bg-cream/50 text-ink/60 transition-all cursor-default"
+                    >
+                      {ingredient}
+                    </motion.span>
+                  ))}
+                </div>
+              ) : (
+                <p className="text-[14.5px] text-ink/50 leading-[1.9] italic border-l border-ink/10 pl-6">
+                  Technical dossiers for this specific formula are being updated for current clinical archives. Contact Rejo Derma for immediate inquiries.
+                </p>
+              )}
+            </div>
           </FadeIn>
 
-          <FadeIn delay={0.08} className="grid grid-cols-1 md:grid-cols-[1.1fr_0.9fr] gap-[18px]">
-            <div className="border border-ink/5 bg-ink-light text-cream-deep p-[28px] md:p-[34px]">
-              <div className="font-mono text-[9px] uppercase tracking-[2.4px] text-gold-bright mb-[12px]">Why It Lives Here</div>
-              <h2 className="font-serif text-[clamp(24px,3vw,34px)] leading-[1.04] text-cream-deep/92 mb-[16px]">
-                Built around routine role, not exaggerated claims.
-              </h2>
-              <p className="text-[13.5px] text-cream-deep/52 leading-[1.85] mb-[22px]">
-                Rejo Derma is easiest to understand when each product has a clear place in the routine. This page connects the formula to its category, key ingredients, and daily or advanced-use role.
-              </p>
-              <div className="space-y-[10px]">
-                {product.ingredientHighlights.map((highlight, index) => (
-                  <div key={highlight} className="flex items-center justify-between border-t border-cream-deep/10 pt-[10px]">
-                    <span className="font-mono text-[8px] uppercase tracking-[2px] text-cream-deep/30">
-                      {String(index + 1).padStart(2, '0')}
-                    </span>
-                    <span className="text-[12.5px] text-cream-deep/80">{highlight}</span>
-                  </div>
-                ))}
+          <FadeIn delay={0.1} className="grid grid-cols-1 md:grid-cols-[1.1fr_0.9fr] gap-[24px]">
+            <div className="border border-ink/5 bg-ink-light text-cream-deep p-[40px] md:p-[56px] relative overflow-hidden group shadow-2xl">
+               {/* Scanline Animation */}
+               <motion.div 
+                  animate={{ left: ['-10%', '110%'] }}
+                  transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
+                  className="absolute top-0 bottom-0 w-[20px] bg-white/5 skew-x-12 z-0 pointer-events-none"
+                />
+              
+              <div className="relative z-10">
+                <div className="font-mono text-[9.5px] uppercase tracking-[4px] text-gold-bright mb-[16px]">03. Strategy</div>
+                <h2 className="font-serif text-[clamp(28px,4vw,40px)] leading-[1] text-cream-deep mb-[24px] tracking-[-1px] uppercase">
+                  Routine <br />
+                  <em className="text-gold-bright italic font-serif">Pacing.</em>
+                </h2>
+                <p className="text-[14.5px] text-cream-deep/40 leading-[1.9] mb-[32px] italic">
+                  "We value consistency over hype. Every product has a defined slot within the five-step Korean architecture."
+                </p>
+                <div className="space-y-[14px]">
+                  {product.ingredientHighlights.map((highlight, index) => (
+                    <div key={highlight} className="flex items-center justify-between border-t border-white/5 pt-[14px] group/item">
+                      <span className="font-mono text-[9px] uppercase tracking-[3px] text-white/20 group-hover/item:text-gold-bright transition-colors">
+                        LOG.0{index + 1}
+                      </span>
+                      <span className="text-[14px] text-cream-deep/80 group-hover/item:text-cream transition-colors">{highlight}</span>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
-            <div className="grid grid-rows-[1fr_auto] gap-[18px]">
-              <ProductImage product={product} alt="" className="border border-ink/5 min-h-[260px] bg-white" />
-              <div className="border border-ink/5 bg-white p-[18px]">
-                <div className="font-mono text-[8px] uppercase tracking-[2px] text-ink/35 mb-[8px]">Routine Position</div>
-                <p className="text-[12.5px] leading-[1.75] text-ink/68">
-                  {product.displayName} belongs to <span className="text-ink">{product.category}</span> and supports the <span className="text-ink">{product.systemRole}</span> stage of the routine.
+
+            <div className="grid grid-rows-[1fr_auto] gap-[24px]">
+              <div className="border border-ink/5 bg-white relative overflow-hidden group/img min-h-[300px] shadow-sm">
+                 <img 
+                    src={product.sceneHeroPath || product.assetPath} 
+                    alt={product.displayName} 
+                    className="absolute inset-0 w-full h-full object-cover group-hover/img:scale-105 transition-transform duration-1000"
+                 />
+                 <div className="absolute inset-0 bg-ink/5 opacity-0 group-hover/img:opacity-100 transition-opacity pointer-events-none" />
+              </div>
+              <div className="border border-ink/5 bg-white p-[32px] group hover:bg-gold-soft/10 transition-colors">
+                <div className="font-mono text-[9px] uppercase tracking-[3px] text-ink/30 mb-[12px]">Positioning</div>
+                <p className="text-[13.5px] leading-[1.8] text-ink/60 italic">
+                  Curated for the <span className="text-ink font-serif group-hover:text-gold transition-colors">{product.category}</span> catalogue, specifically supporting the <span className="text-gold">{product.systemRole}</span> routine stage.
                 </p>
               </div>
             </div>
           </FadeIn>
         </div>
 
+        {/* Related Products Section */}
         {relatedProducts.length ? (
-          <div>
-            <FadeIn className="mb-[22px]">
-              <div className="font-mono text-[9px] uppercase tracking-[2.4px] text-ink/40 mb-[10px]">Related In This Family</div>
-              <h2 className="font-serif text-[clamp(24px,3vw,34px)] leading-[1.04] text-ink">
-                More from the same <em className="text-gold italic font-serif">routine family.</em>
-              </h2>
+          <div className="border-t border-ink/5 pt-[80px]">
+            <FadeIn className="mb-[48px] flex flex-col md:flex-row md:items-end justify-between gap-8">
+              <div>
+                <div className="font-mono text-[10px] uppercase tracking-[4px] text-ink/30 flex items-center gap-[12px] mb-[16px]">
+                  <div className="w-[20px] h-[1px] bg-ink/10"></div>
+                  04. Continuity
+                </div>
+                <h2 className="font-serif text-[clamp(32px,4.5vw,48px)] leading-[0.95] tracking-[-1.5px] text-ink uppercase">
+                  Related <br />
+                  <em className="text-gold italic font-serif">Dossiers.</em>
+                </h2>
+              </div>
+              <Link 
+                to="/routine" 
+                className="inline-flex items-center gap-3 font-mono text-[10px] uppercase tracking-[3px] text-gold hover:text-ink transition-all group"
+              >
+                Explore Full Routine
+                <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+              </Link>
             </FadeIn>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-[18px]">
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-[24px]">
               {relatedProducts.map((entry, index) => (
-                <FadeIn key={entry.slug} delay={index * 0.05}>
+                <FadeIn key={entry.slug} delay={index * 0.1}>
                   <Link
                     to={`/products/${entry.slug}`}
-                    className="block border border-ink/5 bg-white hover:border-gold/40 transition-colors"
+                    className="block border border-ink/5 bg-white group hover:shadow-2xl transition-all duration-700 hover:-translate-y-2 overflow-hidden"
                   >
-                    <ProductImage product={entry} className="aspect-[4/5]" />
-                    <div className="p-[18px]">
-                      <div className="font-mono text-[8px] uppercase tracking-[2px] text-gold mb-[8px]">
-                        {entry.systemRole} / {entry.capacity}
+                    <div className="relative aspect-[4/5] overflow-hidden bg-cream-dark/20">
+                       <img 
+                          src={entry.sceneHeroPath || entry.assetPath} 
+                          alt={entry.displayName}
+                          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000"
+                       />
+                       <div className="absolute inset-0 bg-ink/10 opacity-0 group-hover:opacity-100 transition-opacity" />
+                       <div className="absolute top-6 left-6 font-mono text-[8px] text-white/60 tracking-[2px] uppercase bg-ink/40 backdrop-blur-sm px-2 py-1">Related // 0{index + 1}</div>
+                    </div>
+                    
+                    <div className="p-[32px] relative bg-white">
+                      <div className="absolute top-0 right-0 p-8 font-mono text-[10px] text-ink/5 group-hover:text-gold/20 transition-colors uppercase">{entry.systemRole}</div>
+                      <div className="font-mono text-[8.5px] uppercase tracking-[3px] text-gold mb-[12px] opacity-60">
+                         {entry.capacity}
                       </div>
-                      <h3 className="font-serif text-[21px] leading-[1.05] text-ink mb-[8px]">{entry.displayName}</h3>
-                      <p className="text-[12.5px] text-ink/62 leading-[1.7]">{entry.shortDescription}</p>
+                      <h3 className="font-serif text-[24px] leading-[1.05] text-ink mb-[12px] group-hover:text-gold transition-colors tracking-[-0.5px]">{entry.displayName}</h3>
+                      <p className="text-[13.5px] text-ink/50 leading-[1.8] italic line-clamp-2">"{entry.shortDescription}"</p>
+                      
+                      <div className="mt-8 flex items-center gap-2 font-mono text-[9px] uppercase tracking-[2px] text-ink/30 group-hover:text-gold transition-colors">
+                         View Details
+                         <ChevronRight size={12} className="group-hover:translate-x-1 transition-transform" />
+                      </div>
                     </div>
                   </Link>
                 </FadeIn>

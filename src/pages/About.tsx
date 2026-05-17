@@ -49,7 +49,7 @@ export default function AboutPage() {
   return (
     <div className="bg-cream min-h-screen overflow-x-hidden">
       {/* Hero Section: The Philosophy */}
-      <div className="pt-[140px] px-6 md:px-[52px] relative overflow-hidden">
+      <div className="pt-[110px] md:pt-[140px] px-6 md:px-[52px] relative overflow-hidden">
         {/* Background Layer: Blueprint Text */}
         <div className="absolute top-0 left-0 w-full h-full pointer-events-none overflow-hidden opacity-[0.03] select-none z-0">
           <div className="absolute top-[20%] left-[-2%] font-serif text-[28vw] leading-none whitespace-nowrap tracking-[-0.05em] uppercase">
@@ -73,10 +73,10 @@ export default function AboutPage() {
               </p>
 
               <div className="grid grid-cols-1 md:grid-cols-[1.2fr_0.8fr] gap-[24px] min-h-[480px]">
-                <div className="relative group overflow-hidden border border-ink/5 shadow-2xl">
+                <div className="relative group overflow-hidden border border-ink/5 shadow-2xl bg-white">
                    <img 
                     src={launchProducts[0].sceneHeroPath || launchProducts[0].assetPath} 
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000" 
+                    className="w-full h-full object-contain md:object-cover group-hover:scale-105 transition-transform duration-1000" 
                     alt="Clinical Presentation"
                    />
                    <div className="absolute bottom-6 left-6 font-mono text-[8px] text-white/60 tracking-[2px] uppercase bg-ink/40 backdrop-blur-sm px-3 py-1">System.Focus // 01</div>
@@ -85,7 +85,7 @@ export default function AboutPage() {
                   <div className="relative group overflow-hidden border border-ink/5 bg-white">
                     <img 
                       src={launchProducts[1].sceneHeroPath || launchProducts[1].assetPath} 
-                      className="w-full h-full object-cover grayscale-[0.5] group-hover:grayscale-0 transition-all duration-700" 
+                      className="w-full h-full object-contain md:object-cover grayscale-[0.5] group-hover:grayscale-0 transition-all duration-700" 
                       alt="Product Node"
                     />
                   </div>
@@ -223,11 +223,11 @@ export default function AboutPage() {
                     {moment.products.map((name) => {
                       const product = productsByName[name];
                       return (
-                        <div key={product.slug} className="overflow-hidden">
+                        <div key={product.slug} className="overflow-hidden bg-cream-dark/10">
                           <img 
                             src={product.sceneHeroPath || product.assetPath} 
                             alt={product.displayName}
-                            className="aspect-[4/5] object-cover group-hover:scale-105 transition-transform duration-1000"
+                            className="aspect-[4/5] object-contain md:object-cover group-hover:scale-105 transition-transform duration-1000"
                           />
                         </div>
                       );

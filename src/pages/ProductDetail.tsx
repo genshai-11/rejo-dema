@@ -34,10 +34,10 @@ export default function ProductDetailPage() {
   const sceneFitClass = product.sceneFit === 'cover' ? 'object-cover' : 'object-contain';
 
   return (
-    <div ref={containerRef} className="pt-[140px] px-6 md:px-[52px] bg-cream min-h-screen overflow-x-hidden">
-      <div className="max-w-7xl mx-auto pb-[120px]">
+    <div ref={containerRef} className="pt-[110px] md:pt-[140px] px-5 md:px-[52px] bg-cream min-h-screen overflow-x-hidden">
+      <div className="max-w-7xl mx-auto pb-[80px] md:pb-[120px]">
         {/* Navigation Breadcrumb */}
-        <div className="mb-[60px] relative overflow-hidden group">
+        <div className="mb-[40px] md:mb-[60px] relative overflow-hidden group">
           <Link
             to="/products"
             className="inline-flex items-center gap-[12px] font-mono text-[9px] uppercase tracking-[3px] text-ink/40 hover:text-gold transition-all group/back"
@@ -48,33 +48,33 @@ export default function ProductDetailPage() {
           <div className="absolute bottom-0 left-0 w-full h-[1px] bg-ink/5"></div>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-[40px] lg:gap-[80px] items-start mb-[120px]">
+        <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-[32px] md:gap-[40px] lg:gap-[80px] items-start mb-[80px] md:mb-[120px]">
           {/* Visual Presentation Section */}
-          <FadeIn className="space-y-[24px]">
-            <div className="grid grid-cols-1 md:grid-cols-[1fr_220px] gap-[24px] items-stretch h-full">
-              <div ref={heroRef} className="relative border border-ink/5 bg-cream-dark/40 aspect-[4/5] md:aspect-auto md:min-h-[620px] overflow-hidden group/hero shadow-2xl">
+          <FadeIn className="space-y-[20px] md:space-y-[24px]">
+            <div className="grid grid-cols-1 md:grid-cols-[1fr_220px] gap-[20px] md:gap-[24px] items-stretch h-full">
+              <div ref={heroRef} className="relative border border-ink/5 bg-cream-dark/20 aspect-[4/5] md:aspect-auto md:min-h-[620px] overflow-hidden group/hero shadow-2xl flex items-center justify-center">
                 <motion.img
                   style={{ scale: heroScale, y: heroY }}
                   src={detailScenePath}
                   alt={product.displayName}
-                  className={`w-full h-full ${sceneFitClass} object-center relative z-10`}
+                  className="w-full h-full object-contain relative z-10"
                 />
 
-                <div className="absolute bottom-8 left-8 z-20 flex items-center gap-4">
-                  <div className="font-mono text-[8px] text-white/50 tracking-[3px] uppercase bg-ink/30 backdrop-blur-md px-3 py-1.5 border border-white/10">
+                <div className="absolute bottom-6 left-6 md:bottom-8 md:left-8 z-20 flex items-center gap-4">
+                  <div className="font-mono text-[7.5px] md:text-[8px] text-white/50 tracking-[2px] md:tracking-[3px] uppercase bg-ink/30 backdrop-blur-md px-3 py-1.5 border border-white/10">
                     Specimen.Analysis // 01
                   </div>
                 </div>
               </div>
 
-              <div className="grid grid-cols-2 md:grid-cols-1 md:grid-rows-2 gap-[24px]">
+              <div className="grid grid-cols-2 md:grid-cols-1 md:grid-rows-2 gap-[16px] md:gap-[24px]">
                 <motion.div 
                    whileHover={{ y: -8 }}
-                   className="relative overflow-hidden group/sub"
+                   className="relative overflow-hidden group/sub aspect-square md:aspect-auto"
                 >
                    <ProductImage
                     product={product}
-                    className="border border-ink/5 bg-white min-h-[220px] transition-all duration-700"
+                    className="h-full border border-ink/5 bg-white transition-all duration-700"
                     imageClassName="scale-[1.05] group-hover/sub:scale-110"
                   />
                    <div className="absolute top-4 right-4 font-mono text-[7px] text-ink/10 group-hover/sub:text-gold/40 transition-colors uppercase">View.01</div>
@@ -82,15 +82,15 @@ export default function ProductDetailPage() {
                 
                 <motion.div 
                    whileHover={{ y: -8 }}
-                   className="relative overflow-hidden group/sub"
+                   className="relative overflow-hidden group/sub aspect-square md:aspect-auto"
                 >
-                  <ProductImage product={product} className="border border-ink/5 bg-gold-soft/30 min-h-[220px]" />
+                  <ProductImage product={product} className="h-full border border-ink/5 bg-gold-soft/30" />
                   <div className="absolute top-4 right-4 font-mono text-[7px] text-ink/10 group-hover/sub:text-gold/40 transition-colors uppercase">View.02</div>
                 </motion.div>
               </div>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-[16px]">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-[12px] md:gap-[16px]">
               {product.ingredientHighlights.slice(0, 3).map((highlight, idx) => (
                 <motion.div 
                   key={highlight} 
@@ -98,13 +98,13 @@ export default function ProductDetailPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ delay: idx * 0.1 }}
                   viewport={{ once: true }}
-                  className="border border-ink/5 bg-white px-[20px] py-[24px] relative group hover:bg-gold-soft/10 transition-colors"
+                  className="border border-ink/5 bg-white px-[18px] py-[20px] md:px-[20px] md:py-[24px] relative group hover:bg-gold-soft/10 transition-colors"
                 >
                   <div className="absolute top-4 right-4 text-gold/20 group-hover:text-gold transition-colors">
-                    {idx === 0 ? <Microscope size={14} /> : idx === 1 ? <ShieldCheck size={14} /> : <Zap size={14} />}
+                    {idx === 0 ? <Microscope size={12} /> : idx === 1 ? <ShieldCheck size={12} /> : <Zap size={12} />}
                   </div>
-                  <div className="font-mono text-[8.5px] uppercase tracking-[3px] text-ink/30 mb-[12px]">Logic.0{idx + 1}</div>
-                  <div className="font-serif text-[19px] leading-[1.1] text-ink group-hover:text-gold transition-colors">{highlight}</div>
+                  <div className="font-mono text-[8.5px] uppercase tracking-[3px] text-ink/30 mb-[10px] md:mb-[12px]">Logic.0{idx + 1}</div>
+                  <div className="font-serif text-[18px] md:text-[19px] leading-[1.1] text-ink group-hover:text-gold transition-colors">{highlight}</div>
                 </motion.div>
               ))}
             </div>
@@ -112,57 +112,59 @@ export default function ProductDetailPage() {
 
           {/* Narrative & Specification Section */}
           <FadeIn delay={0.15}>
-            <div className="sticky top-[140px]">
-              <div className="font-mono text-[10px] uppercase tracking-[4px] text-gold flex items-center gap-[12px] mb-[20px]">
+            <div className="lg:sticky lg:top-[120px]">
+              <div className="font-mono text-[9px] uppercase tracking-[4px] text-gold flex items-center gap-[12px] mb-[16px] md:mb-[20px]">
                 <div className="w-[20px] h-[1px] bg-gold"></div>
                 {product.category}
               </div>
               
-              <h1 className="font-serif text-[clamp(42px,6vw,72px)] leading-[0.92] tracking-[-2px] text-ink mb-[24px] uppercase">
+              <h1 className="font-serif text-[clamp(36px,6vw,72px)] leading-[0.92] tracking-[-1.5px] md:tracking-[-2px] text-ink mb-[20px] md:mb-[24px] uppercase">
                 {product.displayName}
               </h1>
 
-              <div className="flex flex-wrap items-center gap-[12px] mb-[32px]">
+              <div className="flex flex-col sm:flex-row flex-wrap items-start sm:items-center gap-[12px] mb-[24px] md:mb-[32px]">
+                <div className="flex flex-wrap items-center gap-[8px]">
+                  <motion.span 
+                    whileHover={{ scale: 1.05 }}
+                    className="font-mono text-[8.5px] md:text-[9px] uppercase tracking-[2px] md:tracking-[2.5px] px-[12px] py-[5px] md:px-[14px] md:py-[6px] bg-sage/10 text-sage border border-sage/5"
+                  >
+                    {product.systemRole}
+                  </motion.span>
+                  <motion.span 
+                    whileHover={{ scale: 1.05 }}
+                    className="font-mono text-[8.5px] md:text-[9px] uppercase tracking-[2px] md:tracking-[2.5px] px-[12px] py-[5px] md:px-[14px] md:py-[6px] bg-gold/10 text-ink border border-gold/5"
+                  >
+                    {product.capacity}
+                  </motion.span>
+                </div>
                 <motion.span 
                   whileHover={{ scale: 1.05 }}
-                  className="font-mono text-[9px] uppercase tracking-[2.5px] px-[14px] py-[6px] bg-sage/10 text-sage border border-sage/5"
-                >
-                  {product.systemRole}
-                </motion.span>
-                <motion.span 
-                  whileHover={{ scale: 1.05 }}
-                  className="font-mono text-[9px] uppercase tracking-[2.5px] px-[14px] py-[6px] bg-gold/10 text-ink border border-gold/5"
-                >
-                  {product.capacity}
-                </motion.span>
-                <motion.span 
-                  whileHover={{ scale: 1.05 }}
-                  className="font-mono text-[9px] uppercase tracking-[2.5px] px-[14px] py-[6px] border border-ink/10 text-ink/40"
+                  className="font-mono text-[8.5px] md:text-[9px] uppercase tracking-[2px] md:tracking-[2.5px] px-[12px] py-[5px] md:px-[14px] md:py-[6px] border border-ink/10 text-ink/40"
                 >
                   {product.availabilityPhase}
                 </motion.span>
               </div>
 
-              <p className="font-serif italic text-[24px] leading-[1.35] text-ink-light mb-[28px] border-l-2 border-gold/30 pl-8">
+              <p className="font-serif italic text-[20px] md:text-[24px] leading-[1.3] md:leading-[1.35] text-ink-light mb-[24px] md:mb-[28px] border-l-2 border-gold/30 pl-6 md:pl-8">
                 "{product.tagline}"
               </p>
               
-              <div className="space-y-[20px] mb-[40px]">
-                <p className="text-[15.5px] text-ink/75 leading-[1.9]">{product.shortDescription}</p>
-                <p className="text-[15.5px] text-ink/75 leading-[1.9]">{product.detailNarrative}</p>
+              <div className="space-y-[16px] md:space-y-[20px] mb-[32px] md:mb-[40px]">
+                <p className="text-[14.5px] md:text-[15.5px] text-ink/75 leading-[1.8] md:leading-[1.9]">{product.shortDescription}</p>
+                <p className="text-[14.5px] md:text-[15.5px] text-ink/75 leading-[1.8] md:leading-[1.9]">{product.detailNarrative}</p>
               </div>
 
               <motion.div 
                 whileHover={{ x: 5 }}
-                className="border border-ink/5 bg-white p-[32px] mb-[32px] relative overflow-hidden group shadow-sm"
+                className="border border-ink/5 bg-white p-[24px] md:p-[32px] mb-[32px] relative overflow-hidden group shadow-sm"
               >
-                <div className="absolute top-0 right-0 p-8 font-mono text-[9px] text-ink/5">SYSTEM.GUIDE</div>
-                <div className="font-mono text-[9px] uppercase tracking-[3px] text-gold mb-[16px]">Usage Protocol</div>
-                <div className="space-y-[14px]">
+                <div className="absolute top-0 right-0 p-6 md:p-8 font-mono text-[9px] text-ink/5">SYSTEM.GUIDE</div>
+                <div className="font-mono text-[8.5px] md:text-[9px] uppercase tracking-[3px] text-gold mb-[16px]">Usage Protocol</div>
+                <div className="space-y-[12px] md:space-y-[14px]">
                   {product.usageNotes.map((note, idx) => (
-                    <div key={note} className="flex gap-4">
-                      <span className="font-mono text-[10px] text-gold/40 pt-1">0{idx + 1}</span>
-                      <p className="text-[14px] text-ink/65 leading-[1.8] italic">
+                    <div key={note} className="flex gap-3 md:gap-4">
+                      <span className="font-mono text-[9px] md:text-[10px] text-gold/40 pt-1">0{idx + 1}</span>
+                      <p className="text-[13.5px] md:text-[14px] text-ink/65 leading-[1.7] md:leading-[1.8] italic">
                         {note}
                       </p>
                     </div>
@@ -170,14 +172,14 @@ export default function ProductDetailPage() {
                 </div>
               </motion.div>
 
-              <div className="grid grid-cols-2 gap-[16px]">
-                <div className="border border-ink/5 bg-gold-soft/30 p-[24px] group">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-[16px]">
+                <div className="border border-ink/5 bg-gold-soft/30 p-[20px] md:p-[24px] group">
                   <div className="font-mono text-[8.5px] uppercase tracking-[3px] text-ink/30 mb-[10px]">Dossier Code</div>
-                  <div className="font-serif text-[16px] leading-[1.5] text-ink/80 group-hover:text-gold transition-colors">{product.exactName}</div>
+                  <div className="font-serif text-[15px] md:text-[16px] leading-[1.5] text-ink/80 group-hover:text-gold transition-colors">{product.exactName}</div>
                 </div>
-                <div className="border border-ink/5 bg-cream-dark p-[24px] group">
+                <div className="border border-ink/5 bg-cream-dark p-[20px] md:p-[24px] group">
                   <div className="font-mono text-[8.5px] uppercase tracking-[3px] text-ink/30 mb-[10px]">Routine Logic</div>
-                  <div className="text-[13.5px] leading-[1.7] text-ink/60 group-hover:text-ink transition-colors">Strategic role in the <span className="text-gold italic font-serif">{product.systemRole}</span> phase.</div>
+                  <div className="text-[13px] md:text-[13.5px] leading-[1.6] md:leading-[1.7] text-ink/60 group-hover:text-ink transition-colors">Strategic role in the <span className="text-gold italic font-serif">{product.systemRole}</span> phase.</div>
                 </div>
               </div>
             </div>
@@ -305,7 +307,7 @@ export default function ProductDetailPage() {
                        <img 
                           src={entry.sceneHeroPath || entry.assetPath} 
                           alt={entry.displayName}
-                          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000"
+                          className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-1000"
                        />
                        <div className="absolute inset-0 bg-ink/10 opacity-0 group-hover:opacity-100 transition-opacity" />
                        <div className="absolute top-6 left-6 font-mono text-[8px] text-white/60 tracking-[2px] uppercase bg-ink/40 backdrop-blur-sm px-2 py-1">Related // 0{index + 1}</div>
@@ -317,7 +319,7 @@ export default function ProductDetailPage() {
                          {entry.capacity}
                       </div>
                       <h3 className="font-serif text-[24px] leading-[1.05] text-ink mb-[12px] group-hover:text-gold transition-colors tracking-[-0.5px]">{entry.displayName}</h3>
-                      <p className="text-[13.5px] text-ink/50 leading-[1.8] italic line-clamp-2">"{entry.shortDescription}"</p>
+                      <p className="text-[13.5px] text-ink/50 leading-[1.8] italic break-words">"{entry.shortDescription}"</p>
                       
                       <div className="mt-8 flex items-center gap-2 font-mono text-[9px] uppercase tracking-[2px] text-ink/30 group-hover:text-gold transition-colors">
                          View Details

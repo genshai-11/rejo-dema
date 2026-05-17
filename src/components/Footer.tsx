@@ -6,12 +6,13 @@ export default function Footer() {
     <footer className="bg-ink text-cream-deep py-12 md:py-20 px-6 md:px-12 border-t border-cream-deep/10">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[2fr_1fr_1fr] gap-12 md:gap-16 mb-12 md:mb-20 max-w-7xl mx-auto">
         <div>
-          <span className="font-serif text-3xl tracking-[3px] text-cream">
-            REJO<b className="text-gold-bright font-medium">DERMA</b>
-          </span>
-          <span className="block font-mono text-[9px] uppercase tracking-[2.5px] text-cream-deep/60 mt-3 font-semibold">
-            Korean Clinical Skincare / Glow, Repair, Protect
-          </span>
+          <div className="mb-6">
+            <img 
+              src="/logo/Logo Rejo Derma.jpg" 
+              alt="Rejo Derma" 
+              className="h-[43px] w-auto object-contain"
+            />
+          </div>
           <p className="font-serif italic text-lg text-cream-deep/60 mt-5 max-w-xs">
             "Precision Skin. Calm Routine."
           </p>
@@ -53,7 +54,7 @@ export default function Footer() {
                 <Link to="/routine" className="text-[13px] md:text-[15px] text-cream-deep/70 hover:text-gold-bright transition-colors block border-b border-cream-deep/10 pb-2">Routine</Link>
               </li>
               <li>
-                <Link to="/ingredients" className="text-[13px] md:text-[15px] text-cream-deep/70 hover:text-gold-bright transition-colors block border-b border-cream-deep/10 pb-2">Ingredients</Link>
+                <Link to="/science" className="text-[13px] md:text-[15px] text-cream-deep/70 hover:text-gold-bright transition-colors block border-b border-cream-deep/10 pb-2">Science</Link>
               </li>
               <li>
                 <Link to="/about" className="text-[13px] md:text-[15px] text-cream-deep/70 hover:text-gold-bright transition-colors block border-b border-cream-deep/10 pb-2">About</Link>

@@ -1,4 +1,4 @@
-import { Facebook, Instagram, ChevronRight } from 'lucide-react';
+import { ChevronRight } from 'lucide-react';
 import FadeIn from './FadeIn';
 
 export default function Contact() {
@@ -20,29 +20,8 @@ export default function Contact() {
         </FadeIn>
 
         <FadeIn delay={0.2} className="space-y-4">
-          {[
-            { icon: <Facebook size={20} className="text-gold" />, platform: 'Facebook', name: 'Rejo Derma Official', link: 'https://facebook.com/rejoderma' },
-            { icon: <Instagram size={20} className="text-gold" />, platform: 'Instagram', name: '@rejoderma.official', link: 'https://instagram.com/rejoderma.official' },
-          ].map((ch, i) => (
-            <a
-              key={i}
-              href={ch.link}
-              target="_blank"
-              rel="noreferrer"
-              className="flex items-center gap-6 p-6 md:p-8 bg-white border border-ink/5 hover:border-gold hover:bg-gold-soft/30 transition-all duration-300 group"
-            >
-              <div className="bg-cream p-3 rounded-full group-hover:scale-110 transition-transform">
-                {ch.icon}
-              </div>
-              <div className="flex-1">
-                <div className="font-mono text-[8.5px] uppercase tracking-widest text-ink/30 mb-0.5">{ch.platform}</div>
-                <div className="font-serif text-xl text-ink">{ch.name}</div>
-              </div>
-              <ChevronRight size={18} className="text-ink/20 group-hover:text-gold group-hover:translate-x-1 transition-all" />
-            </a>
-          ))}
-          <div className="pt-6 mt-4 border-t border-ink/5 font-mono text-[9px] uppercase tracking-widest text-ink/30 text-center md:text-left">
-            For official availability, please use verified Rejo Derma channels.
+          <div className="pt-6 mt-4 font-mono text-[9px] uppercase tracking-widest text-ink/30 text-center md:text-left">
+            For official availability, please use verified Rejo Derma channels or the contact form.
           </div>
         </FadeIn>
       </div>

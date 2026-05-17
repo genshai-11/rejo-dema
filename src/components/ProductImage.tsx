@@ -16,7 +16,7 @@ export default function ProductImage({
 }: ProductImageProps) {
   const imagePath = product.sceneHeroPath || product.assetPath;
   const [hasImageError, setHasImageError] = useState(!imagePath);
-  const fitClass = product.sceneHeroPath ? 'object-cover' : (product.imageFit === 'cover' ? 'object-cover' : 'object-contain');
+  const fitClass = product.imageFit === 'cover' ? 'object-cover' : 'object-contain';
   const focusClass =
     product.visualFocus === 'top'
       ? 'object-top'

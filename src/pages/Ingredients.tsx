@@ -21,38 +21,61 @@ const ingredientSceneMap: Record<string, string> = {
 
 export default function IngredientsPage() {
   return (
-    <div className="pt-[96px] px-6 md:px-[52px] bg-ink-light text-cream-deep min-h-screen overflow-x-hidden">
-      <div className="max-w-7xl mx-auto pb-[96px]">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-[80px] items-end pb-[48px] border-b border-cream-deep/5 mb-[64px]">
+    <div className="pt-[110px] md:pt-[96px] px-5 md:px-[52px] bg-ink-light text-cream-deep min-h-screen overflow-x-hidden">
+      <div className="max-w-7xl mx-auto pb-[64px] md:pb-[96px]">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-[40px] md:gap-[80px] items-end pb-[40px] md:pb-[48px] border-b border-cream-deep/5 mb-[48px] md:mb-[64px]">
           <FadeIn>
             <div className="font-mono text-[9.5px] uppercase tracking-[3px] text-gold-bright flex items-center gap-[10px] mb-[12px]">
               <div className="w-[14px] h-[1px] bg-gold-bright"></div>
-              Ingredients
+              Science
             </div>
             <h2 className="font-serif [text-wrap:balance] text-[clamp(32px,5vw,58px)] leading-[1.05] tracking-[-0.3px] text-cream-deep/90 max-w-[20ch]">
-              Ingredient stories,<br />
+              Precise science,<br />
               <em className="text-gold-bright italic font-serif">made simple.</em>
             </h2>
           </FadeIn>
           <FadeIn delay={0.2}>
-            <p className="text-[15px] text-cream-deep/40 leading-[1.85] max-w-[520px]">
-              Ingredient stories should feel clear at a glance, with visuals doing more of the work and copy staying easier to scan.
+            <p className="text-[14.5px] md:text-[15px] text-cream-deep/40 leading-[1.75] md:leading-[1.85] max-w-[520px]">
+              Scientific innovation should feel clear at a glance, with visuals doing more of the work and copy staying easier to scan.
             </p>
           </FadeIn>
         </div>
 
-        <FadeIn className="mb-[64px]">
-          <IngredientOrbit />
+        <FadeIn className="mb-[64px] md:mb-[96px]">
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-6 px-2">
+            <div>
+              <div className="font-mono text-[9px] uppercase tracking-[4px] text-gold-bright/30 mb-3 flex items-center gap-2">
+                <div className="w-1 h-1 bg-gold-bright/30 rounded-full"></div>
+                Molecular Database
+              </div>
+              <h3 className="font-serif text-[28px] md:text-[32px] text-cream-deep/85 tracking-[-0.5px]">
+                Active Compound <em className="text-gold-bright italic">Matrix</em>
+              </h3>
+            </div>
+            <div className="flex items-center gap-8 border-l border-cream-deep/10 pl-8 hidden md:flex">
+              <div>
+                <div className="font-mono text-[7px] text-cream-deep/20 uppercase tracking-[2px] mb-1">Last Update</div>
+                <div className="font-mono text-[9px] text-gold-bright uppercase tracking-[1px]">REV.2026.04</div>
+              </div>
+              <div>
+                <div className="font-mono text-[7px] text-cream-deep/20 uppercase tracking-[2px] mb-1">Status</div>
+                <div className="font-mono text-[9px] text-gold-bright uppercase tracking-[1px]">Verified Grade</div>
+              </div>
+            </div>
+          </div>
+          <div className="overflow-hidden border border-cream-deep/5">
+            <IngredientOrbit />
+          </div>
         </FadeIn>
 
-        <FadeIn className="mb-[72px] relative overflow-hidden border border-cream-deep/8 min-h-[280px] md:min-h-[360px]">
+        <FadeIn className="mb-[64px] md:mb-[72px] relative overflow-hidden border border-cream-deep/8 min-h-[320px] md:min-h-[360px]">
           <img
             src={brandVisuals.scienceBrightening}
             alt=""
             className="absolute inset-0 h-full w-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-ink-light/88 via-ink-light/52 to-transparent" />
-          <div className="relative z-10 max-w-[520px] p-[26px] md:p-[40px]">
+          <div className="absolute inset-0 bg-gradient-to-b from-ink-light/90 via-ink-light/60 to-transparent md:bg-gradient-to-r md:from-ink-light/88 md:via-ink-light/52 md:to-transparent" />
+          <div className="relative z-10 max-w-[520px] p-[28px] md:p-[40px]">
             <div className="font-mono text-[8.5px] uppercase tracking-[2.5px] text-gold-bright mb-[12px]">
               Tone Correction / Brightening Logic
             </div>
@@ -61,13 +84,13 @@ export default function IngredientsPage() {
               <br />
               <em className="text-gold-bright italic">without overcomplicating the science.</em>
             </h3>
-            <p className="text-[13.5px] text-cream-deep/48 leading-[1.75] max-w-[470px]">
+            <p className="text-[13px] md:text-[13.5px] text-cream-deep/48 leading-[1.7] md:leading-[1.75] max-w-[470px]">
               Tranexamic acid, niacinamide, glutathione, and supportive brightening blends are framed here as customer-facing benefits that register quickly.
             </p>
           </div>
         </FadeIn>
 
-        <div className="space-y-[80px] mb-[160px]">
+        <div className="space-y-[64px] md:space-y-[80px] mb-[100px] md:mb-[160px]">
           {ingredientStories.slice(0, 3).map((story, index) => {
             const storyProducts = story.foundIn.map((name) => productsByName[name]).filter(Boolean);
             const featureProduct = storyProducts[0];
@@ -85,11 +108,11 @@ export default function IngredientsPage() {
               <FadeIn
                 key={story.name}
                 delay={index * 0.15}
-                className="relative min-h-[600px] md:min-h-[700px] border border-cream-deep/10 bg-ink-light overflow-hidden group shadow-[0_50px_120px_rgba(0,0,0,0.5)]"
+                className="relative min-h-[650px] md:min-h-[700px] border border-cream-deep/10 bg-ink-light overflow-hidden group shadow-[0_50px_120px_rgba(0,0,0,0.5)]"
               >
                 {/* Layer 0: The Blueprint Background */}
-                <div className="absolute inset-0 pointer-events-none overflow-hidden opacity-[0.04] select-none z-0">
-                   <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 font-serif text-[28vw] leading-none whitespace-nowrap tracking-[-0.05em] uppercase transition-transform duration-1000 group-hover:scale-110">
+                <div className="absolute inset-0 pointer-events-none overflow-hidden opacity-[0.03] md:opacity-[0.04] select-none z-0">
+                   <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 font-serif text-[40vw] md:text-[28vw] leading-none whitespace-nowrap tracking-[-0.05em] uppercase transition-transform duration-1000 group-hover:scale-110">
                     {story.name.split(' ')[0]}
                   </div>
                 </div>
@@ -102,15 +125,15 @@ export default function IngredientsPage() {
                   <div className="absolute bottom-[10%] left-0 right-0 h-[1px] bg-cream-deep/10"></div>
                   
                   {/* Coordinate labels */}
-                  <div className="absolute top-4 left-[5%] -translate-x-1/2 font-mono text-[7px] text-cream-deep/20">LAT.44.02</div>
-                  <div className="absolute top-4 right-[5%] translate-x-1/2 font-mono text-[7px] text-cream-deep/20">LNG.122.9</div>
-                  <div className="absolute bottom-4 left-[5%] -translate-x-1/2 font-mono text-[7px] text-cream-deep/20">REF.V{index + 1}</div>
+                  <div className="absolute top-4 left-[5%] -translate-x-1/2 font-mono text-[6px] md:text-[7px] text-cream-deep/20">LAT.44.02</div>
+                  <div className="absolute top-4 right-[5%] translate-x-1/2 font-mono text-[6px] md:text-[7px] text-cream-deep/20">LNG.122.9</div>
+                  <div className="absolute bottom-4 left-[5%] -translate-x-1/2 font-mono text-[6px] md:text-[7px] text-cream-deep/20">REF.V{index + 1}</div>
                 </div>
 
                 {/* Layer 2: The Specimen Tray (absolute inset-0 z-10) */}
                 <div className="absolute inset-0 z-10 flex flex-col lg:flex-row">
                   {/* Left Section: Visual Analysis */}
-                  <div className="relative w-full lg:w-[48%] h-[400px] lg:h-auto border-b lg:border-b-0 lg:border-r border-cream-deep/10 flex items-center justify-center p-12 overflow-hidden">
+                  <div className="relative w-full lg:w-[48%] h-[500px] sm:h-[550px] lg:h-auto border-b lg:border-b-0 lg:border-r border-cream-deep/10 flex items-center justify-center p-8 sm:p-12 lg:p-12 overflow-hidden">
                     {/* Scanning Line Animation */}
                     <motion.div 
                       animate={{ top: ['0%', '100%', '0%'] }}
@@ -118,90 +141,90 @@ export default function IngredientsPage() {
                       className="absolute left-0 right-0 h-[1px] bg-gold-bright/20 z-20 pointer-events-none"
                     />
 
-                    <div className="relative group/specimen">
-                      <div className={`absolute -inset-16 ${themeBg}/10 blur-[80px] rounded-full opacity-40 group-hover:opacity-90 transition-all duration-1000 animate-pulse`}></div>
+                    <div className="relative group/specimen scale-[0.75] sm:scale-90 lg:scale-100 flex items-center justify-center">
+                      <div className={`absolute -inset-10 md:-inset-16 ${themeBg}/10 blur-[60px] md:blur-[80px] rounded-full opacity-40 group-hover:opacity-90 transition-all duration-1000 animate-pulse`}></div>
                       <motion.div
-                        whileHover={{ y: -15, scale: 1.05 }}
+                        whileHover={{ y: -10, scale: 1.02 }}
                         transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                        className="relative z-10"
+                        className="relative z-10 flex justify-center items-center"
                       >
-                        <ProductImage product={featureProduct} className="border border-cream-deep/10 bg-ink shadow-2xl max-w-[260px] md:max-w-[320px] lg:max-w-[340px]" />
+                        <ProductImage product={featureProduct} className="border border-cream-deep/10 bg-ink shadow-2xl w-full max-w-[180px] sm:max-w-[240px] md:max-w-[320px] lg:max-w-[340px] h-auto object-contain" />
                         
                         {/* Technical Floating Tags */}
-                        <div className="absolute -top-6 -right-6 bg-ink/80 backdrop-blur-md border border-cream-deep/10 p-3 shadow-xl">
-                          <div className="font-mono text-[7px] text-cream-deep/40 uppercase mb-1">Purity Level</div>
-                          <div className={`font-serif text-[14px] ${themeColor}`}>99.8% CLINICAL</div>
+                        <div className="absolute -top-4 -right-4 md:-top-6 md:-right-6 bg-ink/80 backdrop-blur-md border border-cream-deep/10 p-2 md:p-3 shadow-xl">
+                          <div className="font-mono text-[6px] md:text-[7px] text-cream-deep/40 uppercase mb-1">Purity Level</div>
+                          <div className={`font-serif text-[12px] md:text-[14px] ${themeColor}`}>99.8% CLINICAL</div>
                         </div>
                       </motion.div>
                     </div>
 
-                    <div className="absolute top-12 left-12">
-                      <div className="flex items-center gap-3 mb-2">
-                        <div className={`w-3 h-3 rounded-full ${themeBg} shadow-[0_0_20px_rgba(212,175,55,0.6)]`}></div>
-                        <span className="font-mono text-[10px] uppercase tracking-[4px] text-cream-deep/40">Specimen.LOG.0{index + 1}</span>
+                    <div className="absolute top-6 left-6 md:top-12 md:left-12">
+                      <div className="flex items-center gap-2 md:gap-3 mb-2">
+                        <div className={`w-2 md:w-3 h-2 md:h-3 rounded-full ${themeBg} shadow-[0_0_15px_rgba(212,175,55,0.4)] md:shadow-[0_0_20px_rgba(212,175,55,0.6)]`}></div>
+                        <span className="font-mono text-[8px] md:text-[10px] uppercase tracking-[3px] md:tracking-[4px] text-cream-deep/40">Specimen.LOG.0{index + 1}</span>
                       </div>
-                      <div className="h-[40px] w-[1px] bg-cream-deep/20 ml-[5px]"></div>
+                      <div className="h-[30px] md:h-[40px] w-[1px] bg-cream-deep/20 ml-[3.5px] md:ml-[5px]"></div>
                     </div>
                   </div>
 
                   {/* Right Section: Clinical Report */}
-                  <div className="relative flex-1 p-8 md:p-16 lg:p-20 flex flex-col justify-center bg-ink-light/40 backdrop-blur-sm">
+                  <div className="relative flex-1 p-6 sm:p-10 md:p-16 lg:p-20 flex flex-col justify-center bg-ink-light/40 backdrop-blur-sm">
                     <div className="max-w-[560px]">
-                      <div className="font-mono text-[9px] uppercase tracking-[5px] text-gold-bright mb-10 flex items-center gap-4">
+                      <div className="font-mono text-[8px] md:text-[9px] uppercase tracking-[3px] md:tracking-[5px] text-gold-bright mb-6 md:mb-10 flex items-center gap-3 md:gap-4">
                         <span className="opacity-30">ANALYSIS:</span> {story.claim}
                         <div className="h-[1px] flex-grow bg-gold-bright/10"></div>
                       </div>
 
-                      <h3 className="font-serif text-[clamp(40px,5.5vw,68px)] leading-[0.88] text-cream-deep mb-8 tracking-[-2px] uppercase">
+                      <h3 className="font-serif text-[clamp(34px,5.5vw,68px)] leading-[0.92] text-cream-deep mb-6 md:mb-8 tracking-[-1.5px] md:tracking-[-2px] uppercase">
                         {story.name}
                       </h3>
 
-                      <p className="text-[17px] md:text-[19px] text-cream-deep/70 leading-[1.8] mb-12 italic font-serif border-l-2 border-gold-bright/30 pl-8 relative">
+                      <p className="text-[15.5px] md:text-[19px] text-cream-deep/70 leading-[1.7] md:leading-[1.8] mb-8 md:mb-12 italic font-serif border-l-2 border-gold-bright/30 pl-6 md:pl-8 relative">
                         {story.body}
                       </p>
 
-                      <div className="grid grid-cols-2 gap-x-12 gap-y-10">
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-12 gap-y-8 md:gap-y-10">
                         {/* Technical Specs */}
-                        <div className="space-y-6">
+                        <div className="space-y-4 md:space-y-6">
                            <div>
-                            <div className="font-mono text-[8px] uppercase tracking-[3px] text-cream-deep/30 mb-3 flex items-center gap-2">
-                              <div className="w-1.5 h-1.5 bg-gold-bright/40"></div>
+                            <div className="font-mono text-[7px] md:text-[8px] uppercase tracking-[2px] md:tracking-[3px] text-cream-deep/30 mb-2 md:mb-3 flex items-center gap-2">
+                              <div className="w-1 md:w-1.5 h-1 md:h-1.5 bg-gold-bright/40"></div>
                               Molecular Weight
                             </div>
-                            <div className="font-serif text-[18px] text-cream-deep/90">248.3 g/mol</div>
+                            <div className="font-serif text-[16px] md:text-[18px] text-cream-deep/90">248.3 g/mol</div>
                           </div>
                           <div>
-                            <div className="font-mono text-[8px] uppercase tracking-[3px] text-cream-deep/30 mb-3 flex items-center gap-2">
-                              <div className="w-1.5 h-1.5 bg-gold-bright/40"></div>
+                            <div className="font-mono text-[7px] md:text-[8px] uppercase tracking-[2px] md:tracking-[3px] text-cream-deep/30 mb-2 md:mb-3 flex items-center gap-2">
+                              <div className="w-1 md:w-1.5 h-1 md:h-1.5 bg-gold-bright/40"></div>
                               Target Layer
                             </div>
-                            <div className="font-serif text-[18px] text-cream-deep/90">Deep Epidermis</div>
+                            <div className="font-serif text-[16px] md:text-[18px] text-cream-deep/90">Deep Epidermis</div>
                           </div>
                         </div>
 
                         {/* Integration */}
-                        <div className="space-y-6">
+                        <div className="space-y-4 md:space-y-6">
                            <div>
-                            <div className="font-mono text-[8px] uppercase tracking-[3px] text-cream-deep/30 mb-3 flex items-center gap-2">
-                              <div className="w-1.5 h-1.5 bg-gold-bright/40"></div>
+                            <div className="font-mono text-[7px] md:text-[8px] uppercase tracking-[2px] md:tracking-[3px] text-cream-deep/30 mb-2 md:mb-3 flex items-center gap-2">
+                              <div className="w-1 md:w-1.5 h-1 md:h-1.5 bg-gold-bright/40"></div>
                               Clinical Application
                             </div>
                             <div className="flex flex-wrap gap-2">
                               {featureProduct.ingredientHighlights.slice(0, 2).map(tag => (
-                                <span key={tag} className={`px-2 py-1 border ${themeBorder} text-[9px] uppercase tracking-[1px] ${themeColor}`}>
+                                <span key={tag} className={`px-1.5 py-0.5 border ${themeBorder} text-[8px] md:text-[9px] uppercase tracking-[1px] ${themeColor}`}>
                                   {tag}
                                 </span>
                               ))}
                             </div>
                           </div>
                           <div>
-                            <div className="font-mono text-[8px] uppercase tracking-[3px] text-cream-deep/30 mb-3 flex items-center gap-2">
-                              <div className="w-1.5 h-1.5 bg-gold-bright/40"></div>
+                            <div className="font-mono text-[7px] md:text-[8px] uppercase tracking-[2px] md:tracking-[3px] text-cream-deep/30 mb-2 md:mb-3 flex items-center gap-2">
+                              <div className="w-1 md:w-1.5 h-1 md:h-1.5 bg-gold-bright/40"></div>
                               System Integration
                             </div>
                             <div className="space-y-1">
                               {storyProducts.slice(0, 2).map(p => (
-                                <Link key={p.slug} to={`/products/${p.slug}`} className="block font-mono text-[9px] text-gold-bright hover:text-cream-deep transition-colors tracking-[2px] uppercase">
+                                <Link key={p.slug} to={`/products/${p.slug}`} className="block font-mono text-[8.5px] text-gold-bright hover:text-cream-deep transition-colors tracking-[2px] uppercase">
                                   {p.displayName} →
                                 </Link>
                               ))}
@@ -212,11 +235,11 @@ export default function IngredientsPage() {
                     </div>
 
                     {/* Scientific Footer Overlay */}
-                    <div className="absolute bottom-8 right-12 text-right hidden md:block">
-                       <div className="font-mono text-[7px] uppercase tracking-[4px] text-cream-deep/15 mb-2">Technical Dossier Rev.2026</div>
+                    <div className="absolute bottom-6 right-8 text-right hidden sm:block">
+                       <div className="font-mono text-[7px] uppercase tracking-[3px] text-cream-deep/15 mb-1.5">Technical Dossier Rev.2026</div>
                        <div className="flex justify-end gap-1">
                           {[...Array(5)].map((_, i) => (
-                            <div key={i} className={`w-[2px] h-[10px] ${i < 3 ? 'bg-gold-bright/30' : 'bg-gold-bright/5'}`}></div>
+                            <div key={i} className={`w-[2px] h-[8px] ${i < 3 ? 'bg-gold-bright/30' : 'bg-gold-bright/5'}`}></div>
                           ))}
                        </div>
                     </div>
@@ -254,7 +277,7 @@ export default function IngredientsPage() {
             <img
               src={groupSceneVisuals.toneCorrection}
               alt="Tone correction product family"
-              className="w-full aspect-[4/3] object-cover"
+              className="w-full aspect-[4/3] object-contain md:object-cover"
             />
             <div className="p-[22px]">
               <div className="font-mono text-[8px] uppercase tracking-[2px] text-gold-bright mb-[8px]">Visual Family 01</div>
@@ -268,7 +291,7 @@ export default function IngredientsPage() {
             <img
               src={groupSceneVisuals.barrierRecovery}
               alt="Barrier recovery product family"
-              className="w-full aspect-[4/3] object-cover"
+              className="w-full aspect-[4/3] object-contain md:object-cover"
             />
             <div className="p-[22px]">
               <div className="font-mono text-[8px] uppercase tracking-[2px] text-gold-bright mb-[8px]">Visual Family 02</div>
@@ -314,7 +337,7 @@ export default function IngredientsPage() {
                 <img
                   src={ingredientSceneMap[story.name]}
                   alt={story.name}
-                  className="w-full aspect-[4/3] object-cover border border-cream-deep/8 mb-[24px]"
+                  className="w-full aspect-[4/3] object-contain md:object-cover border border-cream-deep/8 mb-[24px] bg-cream-deep/5"
                 />
               ) : null}
               <div className="font-mono text-[9px] uppercase tracking-[3px] text-gold-bright/80 mb-[20px] flex items-center gap-[8px]">

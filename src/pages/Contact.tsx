@@ -1,5 +1,4 @@
 import { type FormEvent, useState } from 'react';
-import { Facebook, Instagram } from 'lucide-react';
 import FadeIn from '../components/FadeIn';
 
 export default function ContactPage() {
@@ -12,7 +11,7 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="pt-[96px] pb-[96px] px-6 md:px-[52px] bg-white min-h-screen">
+    <div className="pt-[110px] md:pt-[96px] pb-[96px] px-6 md:px-[52px] bg-white min-h-screen">
       <div className="max-w-7xl mx-auto w-full">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-[80px] items-start mt-[40px]">
           <FadeIn className="md:pr-[80px] md:border-r border-ink/5">
@@ -26,32 +25,8 @@ export default function ContactPage() {
             </h2>
             <p className="text-[14.5px] text-ink/70 leading-[1.9] mt-[12px] mb-[40px]">
               For product information, routine guidance, retail availability, or professional partnership inquiries,
-              reach out through the official Rejo Derma channels below.
+              reach out through the official Rejo Derma channels or our contact form.
             </p>
-
-            <div className="flex flex-col gap-[10px]">
-              <a href="https://facebook.com/rejoderma" target="_blank" rel="noreferrer" className="flex items-center gap-[18px] p-[20px] px-[24px] bg-white border border-ink/5 hover:border-gold hover:bg-gold-soft transition-all duration-250 group">
-                <div className="w-[36px] h-[36px] shrink-0 flex items-center justify-center text-gold">
-                  <Facebook size={22} className="fill-current stroke-none" />
-                </div>
-                <div className="flex-1">
-                  <div className="font-mono text-[8.5px] uppercase tracking-[2px] text-ink/40 mb-[3px]">Facebook</div>
-                  <div className="font-serif text-[17px] font-normal text-ink">Rejo Derma Official</div>
-                </div>
-                <div className="text-[13px] text-ink/30 group-hover:text-gold group-hover:translate-x-1 transition-all">{'->'}</div>
-              </a>
-
-              <a href="https://instagram.com/rejoderma.official" target="_blank" rel="noreferrer" className="flex items-center gap-[18px] p-[20px] px-[24px] bg-white border border-ink/5 hover:border-gold hover:bg-gold-soft transition-all duration-250 group">
-                <div className="w-[36px] h-[36px] shrink-0 flex items-center justify-center text-gold">
-                  <Instagram size={22} className="stroke-current stroke-[1.5]" />
-                </div>
-                <div className="flex-1">
-                  <div className="font-mono text-[8.5px] uppercase tracking-[2px] text-ink/40 mb-[3px]">Instagram</div>
-                  <div className="font-serif text-[17px] font-normal text-ink">@rejoderma.official</div>
-                </div>
-                <div className="text-[13px] text-ink/30 group-hover:text-gold group-hover:translate-x-1 transition-all">{'->'}</div>
-              </a>
-            </div>
 
             <div className="mt-[16px] font-mono text-[9px] tracking-[1px] text-ink/40 pt-[14px] border-t border-ink/5">
               For official availability, please use verified Rejo Derma channels.

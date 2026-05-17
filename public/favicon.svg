@@ -1,5 +1,5 @@
-<svg width="128" height="128" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <rect width="128" height="128" fill="#1D1712"/>
-  <text x="14" y="72" fill="#F5EFE8" font-family="Cormorant Garamond, Georgia, serif" font-size="22" font-weight="500" letter-spacing="3.2">REJO</text>
-  <text x="68" y="72" fill="#B98524" font-family="Cormorant Garamond, Georgia, serif" font-size="22" font-weight="500" letter-spacing="3.2">DERMA</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Rejo Derma favicon">
+  <rect width="64" height="64" rx="14" fill="#1D1712"/>
+  <circle cx="32" cy="32" r="18" fill="#E9D7C3" opacity="0.95"/>
+  <path d="M24 42V22h9.2c5.4 0 8.8 2.8 8.8 7.5 0 4.8-3.4 7.8-8.8 7.8H28V42h-4zm4-8h4.8c3.3 0 5.1-1.5 5.1-4.4 0-2.8-1.8-4.2-5.1-4.2H28v8.6z" fill="#1D1712"/>
 </svg>

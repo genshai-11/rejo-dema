@@ -99,47 +99,6 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="px-6 md:px-[52px] py-[40px] bg-white border-t border-ink/5" ref={launchRef}>
-        <div className="max-w-7xl mx-auto">
-          <FadeIn className="relative overflow-hidden border border-ink/10 bg-[#f4efe6] min-h-[500px] md:min-h-[640px] group shadow-2xl">
-            <motion.img
-              style={{ y: launchY }}
-              src={brandVisuals.launchStory}
-              alt=""
-              className="absolute inset-0 h-[120%] w-full object-cover scale-110"
-            />
-            <div className="absolute inset-0 bg-gradient-to-r from-white/95 via-white/70 to-transparent" />
-            <div className="absolute inset-0 grain-overlay opacity-30 pointer-events-none" />
-            
-            <div className="relative z-10 max-w-[580px] p-[40px] md:p-[80px] h-full flex flex-col justify-center">
-              <div className="font-mono text-[9px] uppercase tracking-[4px] text-gold flex items-center gap-[12px] mb-[20px]">
-                <div className="w-[20px] h-[1px] bg-gold"></div>
-                02. Brand Atmosphere
-              </div>
-              <h2 className="font-serif text-[clamp(32px,4.5vw,56px)] leading-[0.98] tracking-[-1.5px] text-ink mb-[24px]">
-                Launch attention <br /> in the front.
-                <br />
-                <em className="text-gold italic font-serif">Routine depth behind.</em>
-              </h2>
-              <p className="text-[15.5px] text-ink/60 leading-[1.9] mb-[40px] max-w-[480px]">
-                The masks draw the eye first. The wider range keeps the brand credible, repeatable,
-                and easier to recommend across brightening, comfort, and protection.
-              </p>
-              <div className="flex flex-wrap gap-[12px]">
-                {['Glow-led retail', 'Barrier-aware', 'Clinic-adjacent'].map((item) => (
-                  <span
-                    key={item}
-                    className="border border-gold/20 bg-white/80 backdrop-blur-sm px-[16px] py-[10px] font-mono text-[8.5px] uppercase tracking-[2px] text-gold shadow-sm"
-                  >
-                    {item}
-                  </span>
-                ))}
-              </div>
-            </div>
-          </FadeIn>
-        </div>
-      </section>
-
       <section className="py-[120px] md:py-[160px] px-6 md:px-[52px] bg-ink border-t border-cream/5 overflow-hidden text-cream-deep relative">
         <div className="absolute top-0 left-0 w-full h-full grain-overlay opacity-20 pointer-events-none"></div>
         <div className="max-w-7xl mx-auto relative z-10">
@@ -147,7 +106,7 @@ export default function Home() {
             <FadeIn className="order-1 flex flex-col justify-center">
               <div className="font-mono text-[9.5px] uppercase tracking-[4px] text-gold flex items-center gap-[12px] mb-[20px]">
                 <div className="w-[20px] h-[1px] bg-gold"></div>
-                03. Launch Priority
+                02. Launch Priority
               </div>
               <h2 className="font-serif text-[clamp(36px,5vw,64px)] leading-[0.98] tracking-[-1.5px] text-cream-deep mb-[28px]">
                 Two visible <br /> glow icons.<br />
@@ -183,9 +142,9 @@ export default function Home() {
             <FadeIn className="order-2 w-full">
               <div className="border border-white/5 relative overflow-hidden bg-ink-light rounded-sm shadow-[0_40px_100px_rgba(0,0,0,0.5)]">
                 <img
-                  src={groupSceneVisuals.launchMasks}
-                  alt="Rejo Derma launch masks"
-                  className="w-full aspect-[4/3] object-cover border-b border-white/5 hover:scale-105 transition-transform duration-700"
+                  src="/brand/proposals/rejo-derma-mask-model-banner-16x9-v1.png"
+                  alt="Rejo Derma mask model editorial"
+                  className="w-full aspect-[4/3] object-contain object-center border-b border-white/5 hover:scale-105 transition-transform duration-700"
                 />
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-[1px] bg-white/5">
                   {launchProducts.map((product) => (
@@ -202,6 +161,47 @@ export default function Home() {
               </div>
             </FadeIn>
           </div>
+        </div>
+      </section>
+
+      <section className="px-6 md:px-[52px] py-[40px] bg-white border-t border-ink/5" ref={launchRef}>
+        <div className="max-w-7xl mx-auto">
+          <FadeIn className="relative overflow-hidden border border-ink/10 bg-[#f4efe6] min-h-[500px] md:min-h-[640px] group shadow-2xl">
+            <motion.img
+              style={{ y: launchY }}
+              src={brandVisuals.launchStory}
+              alt=""
+              className="absolute inset-0 h-[120%] w-full object-cover scale-110"
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-white/95 via-white/70 to-transparent" />
+            <div className="absolute inset-0 grain-overlay opacity-30 pointer-events-none" />
+            
+            <div className="relative z-10 max-w-[580px] p-[40px] md:p-[80px] h-full flex flex-col justify-center">
+              <div className="font-mono text-[9px] uppercase tracking-[4px] text-gold flex items-center gap-[12px] mb-[20px]">
+                <div className="w-[20px] h-[1px] bg-gold"></div>
+                03. Brand Atmosphere
+              </div>
+              <h2 className="font-serif text-[clamp(32px,4.5vw,56px)] leading-[0.98] tracking-[-1.5px] text-ink mb-[24px]">
+                Launch attention <br /> in the front.
+                <br />
+                <em className="text-gold italic font-serif">Routine depth behind.</em>
+              </h2>
+              <p className="text-[15.5px] text-ink/60 leading-[1.9] mb-[40px] max-w-[480px]">
+                The masks draw the eye first. The wider range keeps the brand credible, repeatable,
+                and easier to recommend across brightening, comfort, and protection.
+              </p>
+              <div className="flex flex-wrap gap-[12px]">
+                {['Glow-led retail', 'Barrier-aware', 'Clinic-adjacent'].map((item) => (
+                  <span
+                    key={item}
+                    className="border border-gold/20 bg-white/80 backdrop-blur-sm px-[16px] py-[10px] font-mono text-[8.5px] uppercase tracking-[2px] text-gold shadow-sm"
+                  >
+                    {item}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </FadeIn>
         </div>
       </section>
 
@@ -264,25 +264,38 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="py-[120px] md:py-[180px] px-6 md:px-[52px] bg-ink text-cream-deep border-t border-white/5 relative overflow-hidden">
+      <section className="py-[100px] md:py-[140px] px-6 md:px-[52px] bg-ink text-cream-deep border-t border-white/5 relative overflow-hidden">
         <div className="max-w-7xl mx-auto relative z-10">
-          <FadeIn className="grid grid-cols-1 lg:grid-cols-2 gap-0 border border-white/5 bg-ink-light overflow-hidden shadow-2xl">
-            <div className="relative min-h-[440px] lg:min-h-full overflow-hidden group">
+          <FadeIn className="flex flex-col border border-white/5 bg-ink-light overflow-hidden shadow-2xl">
+            {/* Image Section - Clean 100% */}
+            <div className="relative min-h-[240px] md:min-h-[500px] bg-[#110d0a] group flex items-center justify-center p-8 md:p-14">
+              <div className="absolute inset-0 grain-overlay opacity-30 pointer-events-none" />
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(208,154,56,0.08),transparent_34%)] pointer-events-none" />
+              
               <motion.img
-                whileHover={{ scale: 1.1 }}
-                transition={{ duration: 1.5 }}
+                whileHover={{ scale: 1.02 }}
+                transition={{ duration: 1.2 }}
                 src={groupSceneVisuals.launchMasks}
                 alt=""
-                className="absolute inset-0 h-full w-full object-cover grayscale-[0.3] group-hover:grayscale-0 transition-all"
+                className="h-full max-h-[460px] md:max-h-[580px] w-full object-contain grayscale-[0.08] group-hover:grayscale-0 transition-all"
               />
-              <div className="absolute inset-0 bg-gradient-to-r from-ink/90 via-ink/40 to-transparent" />
-              <div className="absolute inset-0 grain-overlay opacity-30 pointer-events-none" />
-              
-              <div className="relative z-10 h-full flex flex-col justify-end p-[40px] md:p-[64px]">
-                <div className="font-mono text-[9px] uppercase tracking-[4px] text-gold-bright mb-[20px]">
-                  05. Visual Language
+            </div>
+
+            {/* Horizontal Info Bar - No overlap */}
+            <div className="border-t border-white/5 bg-ink/40 backdrop-blur-sm p-8 md:p-12">
+              <div className="grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-12 items-center">
+                <div>
+                  <div className="font-mono text-[10px] uppercase tracking-[4px] text-gold flex items-center gap-[12px] mb-[20px]">
+                    <div className="w-[20px] h-[1px] bg-gold"></div>
+                    05. Visual Language
+                  </div>
+                  <h2 className="font-serif text-[clamp(32px,3vw,42px)] leading-[1] tracking-[-1px] text-cream-deep">
+                    Glow that attracts.<br />
+                    <em className="text-gold italic font-serif">Recovery that balances.</em>
+                  </h2>
                 </div>
-                <div className="grid grid-cols-2 gap-[12px] max-w-[360px]">
+
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 md:gap-6">
                   {[
                     { icon: Sparkles, label: 'Glow-first' },
                     { icon: Shield, label: 'Barrier support' },
@@ -290,17 +303,16 @@ export default function Home() {
                     { icon: FlaskConical, label: 'Clinical polish' },
                   ].map((item, idx) => {
                     const Icon = item.icon;
-
                     return (
-                      <motion.div 
-                        key={item.label} 
+                      <motion.div
+                        key={item.label}
                         initial={{ opacity: 0, y: 10 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.1 * idx }}
-                        className="border border-white/10 bg-ink/60 backdrop-blur-md p-[16px] group/icon hover:bg-gold hover:border-gold transition-all duration-300"
+                        className="group/icon border border-white/5 bg-white/[0.02] p-6 transition-all duration-300 hover:border-gold hover:bg-gold/10"
                       >
-                        <Icon size={18} strokeWidth={1.2} className="text-gold-bright mb-[12px] group-hover/icon:text-ink transition-colors" />
-                        <div className="font-mono text-[8.5px] uppercase tracking-[2px] text-cream-deep/40 group-hover/icon:text-ink transition-colors">
+                        <Icon size={18} strokeWidth={1} className="mb-4 text-gold-bright" />
+                        <div className="font-mono text-[8px] uppercase tracking-[2px] text-cream-deep/50 md:text-[9px]">
                           {item.label}
                         </div>
                       </motion.div>
@@ -308,40 +320,21 @@ export default function Home() {
                   })}
                 </div>
               </div>
-            </div>
 
-            <div className="flex flex-col justify-center p-[40px] md:p-[100px] relative">
-              <div className="absolute top-0 right-0 p-12 opacity-5 pointer-events-none">
-                 <Shield size={200} strokeWidth={0.5} />
-              </div>
-              <div className="font-mono text-[10px] uppercase tracking-[4px] text-gold flex items-center gap-[12px] mb-[20px]">
-                <div className="w-[20px] h-[1px] bg-gold"></div>
-                Brand Promise
-              </div>
-              <h2 className="font-serif text-[clamp(32px,4vw,52px)] leading-[0.98] tracking-[-1.5px] text-cream-deep mb-[32px]">
-                Glow that attracts.<br />
-                <em className="text-gold italic font-serif">Recovery that balances.</em>
-              </h2>
-              <p className="text-[16px] text-cream-deep/60 leading-[1.9] mb-[56px] max-w-[480px]">
-                Rejo Derma is designed to feel immediate on the shelf and coherent in use.
-                The masks bring the glow moment. The wider routine keeps tone care, recovery, and protection connected.
-              </p>
-
-              <div className="flex flex-col sm:flex-row gap-[20px] sm:items-center">
-                <Link
-                  to="/products"
-                  className="group relative inline-flex items-center justify-center font-mono text-[10px] uppercase tracking-[3px] px-[40px] py-[20px] bg-white text-ink overflow-hidden transition-all duration-500 hover:text-white"
-                >
-                  <span className="absolute inset-0 bg-gold translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out"></span>
-                  <span className="relative z-10">View Products</span>
-                </Link>
-                <Link
-                  to="/ingredients"
-                  className="group inline-flex items-center gap-3 font-mono text-[10px] uppercase tracking-[2.5px] text-cream-deep/60 hover:text-gold transition-all duration-300"
-                >
-                  Explore Ingredients
-                  <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
-                </Link>
+              <div className="mt-12 pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
+                <p className="text-[15px] text-cream-deep/50 leading-[1.8] max-w-[520px]">
+                  Rejo Derma is designed to feel immediate on the shelf and coherent in use.
+                  The masks bring the glow moment. The wider routine keeps tone care, recovery, and protection connected.
+                </p>
+                <div className="flex flex-col sm:flex-row gap-[20px] w-full sm:w-auto">
+                  <Link
+                    to="/products"
+                    className="group relative inline-flex items-center justify-center font-mono text-[10px] uppercase tracking-[3px] px-[40px] py-[20px] bg-white text-ink overflow-hidden transition-all duration-500 hover:text-white"
+                  >
+                    <span className="absolute inset-0 bg-gold translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out"></span>
+                    <span className="relative z-10">View Products</span>
+                  </Link>
+                </div>
               </div>
             </div>
           </FadeIn>

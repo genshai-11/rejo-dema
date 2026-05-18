@@ -52,18 +52,17 @@ export default function ProductsPage() {
         </div>
 
         <div ref={heroRef}>
-          <FadeIn className="mb-[64px] md:mb-[80px] relative overflow-hidden border border-ink/10 aspect-[3/2] sm:aspect-[16/9] md:aspect-[2.8/1] min-h-[240px] md:min-h-[300px] bg-[#f4efe6] group shadow-2xl">
+          <FadeIn className="mb-[64px] md:mb-[80px] relative overflow-hidden border border-ink/10 aspect-[4/5] sm:aspect-[16/9] md:aspect-[2.8/1] min-h-[320px] md:min-h-[300px] bg-[#f4efe6] group shadow-2xl">
             <motion.img
               style={{ y: heroY }}
               src={brandVisuals.productsHero}
               alt=""
               className="absolute inset-0 h-[115%] w-full object-cover object-right md:object-center transition-transform duration-700"
             />
-            <div className="absolute inset-0 bg-gradient-to-b from-white/95 via-white/40 to-transparent md:bg-gradient-to-r md:from-white/92 md:via-white/60 md:to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-b sm:bg-gradient-to-r from-white/95 via-white/40 sm:via-white/60 to-transparent" />
             <div className="absolute inset-0 grain-overlay opacity-30 pointer-events-none" />
-            
-            <div className="relative z-10 max-w-[620px] p-[24px] sm:p-[40px] md:p-[80px] h-full flex flex-col justify-start md:justify-center pt-[32px] md:pt-0">
-              <div className="font-mono text-[9px] uppercase tracking-[4px] text-gold flex items-center gap-[12px] mb-[12px] md:mb-[20px]">
+
+            <div className="relative z-10 max-w-[620px] p-8 sm:p-[40px] md:p-[80px] h-full flex flex-col justify-center md:justify-center">              <div className="font-mono text-[9px] uppercase tracking-[4px] text-gold flex items-center gap-[12px] mb-[12px] md:mb-[20px]">
                 <div className="w-[20px] h-[1px] bg-gold"></div>
                 Brand Landscape
               </div>

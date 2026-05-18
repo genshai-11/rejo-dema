@@ -7,12 +7,11 @@ export default function Footer() {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[2fr_1fr_1fr] gap-12 md:gap-16 mb-12 md:mb-20 max-w-7xl mx-auto">
         <div>
           <div className="mb-6">
-            <img 
-              src="/logo/Logo Rejo Derma.jpg" 
-              alt="Rejo Derma" 
+            <img
+              src="/logo/Logo Rejo Derma (No background).png"
+              alt="Rejo Derma"
               className="h-[43px] w-auto object-contain"
-            />
-          </div>
+            />          </div>
           <p className="font-serif italic text-lg text-cream-deep/60 mt-5 max-w-xs">
             "Precision Skin. Calm Routine."
           </p>

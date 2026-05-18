@@ -176,7 +176,7 @@ export default function Home() {
             <div className="absolute inset-0 bg-gradient-to-r from-white/95 via-white/70 to-transparent" />
             <div className="absolute inset-0 grain-overlay opacity-30 pointer-events-none" />
             
-            <div className="relative z-10 max-w-[580px] p-[40px] md:p-[80px] h-full flex flex-col justify-center">
+            <div className="relative z-10 max-w-[580px] p-8 sm:p-[40px] md:p-[80px] h-full flex flex-col justify-center">
               <div className="font-mono text-[9px] uppercase tracking-[4px] text-gold flex items-center gap-[12px] mb-[20px]">
                 <div className="w-[20px] h-[1px] bg-gold"></div>
                 03. Brand Atmosphere

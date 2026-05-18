@@ -6,37 +6,6 @@ import FadeIn from '../components/FadeIn';
 import ProductImage from '../components/ProductImage';
 import { brandVisuals, launchProducts, orderedProducts, productGalleryMoments, productsByName } from '../data/products';
 
-const laboratoryPartners = [
-  { 
-    name: 'Picostech', 
-    specialty: 'Peptide Lab', 
-    products: 'Repair Peptide Cream / Heal Serum',
-    nodeId: 'NODE.01',
-    description: 'Specializing in molecular structural support and advanced peptide chain synthesis.'
-  },
-  { 
-    name: 'Yeonje', 
-    specialty: 'Clinical Actives', 
-    products: 'Tranexamic Acid Serum / B5 Repair Serum',
-    nodeId: 'NODE.02',
-    description: 'A dedicated research facility for high-purity clinical actives and targeted delivery systems.'
-  },
-  { 
-    name: 'Rainbow', 
-    specialty: 'Protection Specialist', 
-    products: 'Daily Tone Up Sunscreen',
-    nodeId: 'NODE.03',
-    description: 'Leading experts in UV-filter stabilization and daily photo-protection logic.'
-  },
-  { 
-    name: 'reBom', 
-    specialty: 'Recovery & Barrier', 
-    products: 'Heal Cream / Intensive Soothing Mask',
-    nodeId: 'NODE.04',
-    description: 'Precision laboratory focused on skin barrier resilience and microbiome-friendly recovery formulas.'
-  },
-];
-
 export default function AboutPage() {
   const heroRef = useRef(null);
   const { scrollYProgress: heroProgress } = useScroll({
@@ -152,15 +121,15 @@ export default function AboutPage() {
       <section className="py-[120px] px-6 md:px-[52px] bg-cream-dark relative">
         <div className="max-w-7xl mx-auto">
           <div ref={heroRef} className="mb-[100px]">
-            <FadeIn className="relative overflow-hidden border border-ink/10 aspect-[16/9] md:aspect-[3.2/1] bg-white group shadow-2xl">
+            <FadeIn className="relative overflow-hidden border border-ink/10 aspect-[4/5] sm:aspect-[16/9] md:aspect-[3.2/1] bg-white group shadow-2xl">
               <motion.img
                 style={{ y: heroY }}
                 src={brandVisuals.aboutArchitecture}
                 alt="Clinical Infrastructure"
                 className="absolute inset-0 h-[115%] w-full object-cover grayscale-[0.2] group-hover:grayscale-0 transition-all duration-1000"
               />
-              <div className="absolute inset-0 bg-gradient-to-r from-white/95 via-white/75 to-transparent" />
-              <div className="relative z-10 max-w-[620px] p-[40px] md:p-[80px] h-full flex flex-col justify-center">
+              <div className="absolute inset-0 bg-gradient-to-b sm:bg-gradient-to-r from-white/95 via-white/90 sm:via-white/75 to-white/30 sm:to-transparent" />
+              <div className="relative z-10 max-w-[620px] p-8 sm:p-[40px] md:p-[80px] h-full flex flex-col justify-center">
                 <div className="font-mono text-[9px] uppercase tracking-[4px] text-gold flex items-center gap-[12px] mb-[20px]">
                   <div className="w-[20px] h-[1px] bg-gold"></div>
                   02. Clinical Network
@@ -176,38 +145,20 @@ export default function AboutPage() {
             </FadeIn>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-[0.85fr_1.15fr] gap-[60px] lg:gap-[100px] items-start">
+          <div className="grid grid-cols-1 gap-[60px] items-start">
             <FadeIn>
-               <div className="sticky top-[140px]">
+               <div className="max-w-[800px]">
                 <div className="font-mono text-[9.5px] uppercase tracking-[4px] text-gold flex items-center gap-[12px] mb-[24px]">
                   <div className="w-[20px] h-[1px] bg-gold"></div>
-                  The Research Nodes
+                  The Research Philosophy
                 </div>
                 <h2 className="font-serif text-[clamp(34px,4.5vw,52px)] leading-[0.95] text-ink mb-[32px] tracking-[-1.5px] uppercase">
                   Precision <br />
                   <em className="text-gold italic font-serif">Sourcing.</em>
                 </h2>
-                <p className="text-[16px] text-ink/68 leading-[1.9] mb-[48px] max-w-[480px]">
-                  From peptide labs to barrier recovery specialists, our partners represent the peak of Korean clinical expertise. This diversity is what allows Rejo Derma to remain both specialized and systemic.
+                <p className="text-[16px] text-ink/68 leading-[1.9] mb-[48px] max-w-[580px]">
+                  Our partners represent the peak of Korean clinical expertise. We prioritize specialized laboratories that focus on specific skin roles—from peptide synthesis to barrier recovery—ensuring every formula in the Rejo Derma range meets clinical-grade purity and stability benchmarks.
                 </p>
-                
-                <div className="space-y-[12px]">
-                  {laboratoryPartners.map((lab) => (
-                    <motion.div 
-                      key={lab.name} 
-                      whileHover={{ x: 10 }}
-                      className="border border-ink/10 bg-white p-[24px] relative group cursor-default"
-                    >
-                      <div className="absolute top-0 right-0 p-6 font-mono text-[8px] text-ink/5 group-hover:text-gold/20 transition-colors">{lab.nodeId}</div>
-                      <div className="flex items-center gap-4 mb-3">
-                        <div className="font-serif text-[22px] text-ink group-hover:text-gold transition-colors">{lab.name}</div>
-                        <div className="px-2 py-0.5 border border-gold/20 font-mono text-[7px] uppercase tracking-[1px] text-gold">{lab.specialty}</div>
-                      </div>
-                      <p className="text-[13px] text-ink/50 leading-[1.7] max-w-[320px] mb-4">{lab.description}</p>
-                      <div className="font-mono text-[8px] uppercase tracking-[2px] text-ink/25 border-t border-ink/5 pt-3">Curated Formulas: {lab.products}</div>
-                    </motion.div>
-                  ))}
-                </div>
               </div>
             </FadeIn>
 

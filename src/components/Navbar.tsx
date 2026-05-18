@@ -46,12 +46,11 @@ export default function Navbar() {
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 px-5 md:px-12 h-20 flex items-center justify-between ${navStyle}`}>
       <Link to="/" className="flex items-center relative z-50">
-        <img 
-          src="/logo/Logo Rejo Derma.jpg" 
-          alt="Rejo Derma" 
+        <img
+          src="/logo/Logo Rejo Derma (No background).png"
+          alt="Rejo Derma"
           className="h-[27px] md:h-[32px] w-auto object-contain"
-        />
-      </Link>
+        />      </Link>
 
       {/* Desktop Links */}
       <div className="hidden md:flex items-center gap-10">

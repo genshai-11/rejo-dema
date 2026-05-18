@@ -189,9 +189,9 @@ export default function IngredientsPage() {
                            <div>
                             <div className="font-mono text-[7px] md:text-[8px] uppercase tracking-[2px] md:tracking-[3px] text-cream-deep/30 mb-2 md:mb-3 flex items-center gap-2">
                               <div className="w-1 md:w-1.5 h-1 md:h-1.5 bg-gold-bright/40"></div>
-                              Molecular Weight
+                              Product Capacity
                             </div>
-                            <div className="font-serif text-[16px] md:text-[18px] text-cream-deep/90">248.3 g/mol</div>
+                            <div className="font-serif text-[16px] md:text-[18px] text-cream-deep/90">{featureProduct?.capacity || 'N/A'}</div>
                           </div>
                           <div>
                             <div className="font-mono text-[7px] md:text-[8px] uppercase tracking-[2px] md:tracking-[3px] text-cream-deep/30 mb-2 md:mb-3 flex items-center gap-2">

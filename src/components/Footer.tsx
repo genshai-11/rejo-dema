@@ -13,7 +13,7 @@ export default function Footer() {
               className="h-[43px] w-auto object-contain"
             />          </div>
           <p className="font-serif italic text-lg text-cream-deep/60 mt-5 max-w-xs">
-            "Precision Skin. Calm Routine."
+            "Precision Skin. Pure Science."
           </p>
           <div className="mt-8 space-y-2 text-[13px] text-cream-deep/50 leading-relaxed">
             <p>Product education, routine guidance, and official inquiry channels.</p>

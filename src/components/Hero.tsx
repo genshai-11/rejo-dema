@@ -42,7 +42,7 @@ export default function Hero() {
                 Skin.
               </FadeIn>
               <FadeIn direction="up" delay={0.4} duration={1.2} className="block text-[clamp(28px,4vw,56px)] font-light text-cream-deep/20 tracking-[-1.5px] mt-[12px]">
-                Calm Routine.
+                Pure Science.
               </FadeIn>
             </h1>
 

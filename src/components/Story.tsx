@@ -14,7 +14,7 @@ export default function Story() {
         <FadeIn className="px-10 py-16 border-r border-ink/10 flex flex-col justify-between hidden lg:flex">
           <div className="font-serif text-[52px] font-light leading-[1] tracking-tighter text-ink">
             Precision Skin.<br />
-            <em className="block italic text-gold">Calm Routine.</em>
+            <em className="block italic text-gold">Pure Science.</em>
           </div>
 
           <div className="space-y-0 mt-20">

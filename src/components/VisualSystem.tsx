@@ -88,11 +88,11 @@ export function HeroProductSystem() {
 
 export function IngredientOrbit() {
   const ingredients = [
-    { label: 'Tranexamic', icon: Sparkles, weight: '157.2 g/mol', target: 'Melanocyte', product: 'Tranexamic Acid Serum' },
-    { label: 'Beta-Glucan', icon: Shield, weight: 'Varies', target: 'Epidermis', product: 'Intensive Soothing Mask' },
-    { label: 'Peptides', icon: Activity, weight: '< 500 Da', target: 'Dermis', product: 'Repair Peptide Cream' },
-    { label: 'Ferments', icon: Beaker, weight: 'Bio-active', target: 'Microbiome', product: 'B5 Repair Serum' },
-    { label: 'Hydration', icon: Droplets, weight: '1.2M Da', target: 'S. Corneum', product: 'Aqua Repair MTS Serum' },
+    { label: 'Tranexamic', icon: Sparkles, capacity: '7ml', target: 'Melanocyte', product: 'Tranexamic Acid Serum' },
+    { label: 'Beta-Glucan', icon: Shield, capacity: '27ml', target: 'Epidermis', product: 'Intensive Soothing Mask' },
+    { label: 'Peptides', icon: Activity, capacity: '50ml', target: 'Dermis', product: 'Repair Peptide Cream' },
+    { label: 'Ferments', icon: Beaker, capacity: '50ml', target: 'Microbiome', product: 'B5 Repair Serum' },
+    { label: 'Hydration', icon: Droplets, capacity: '50ml', target: 'S. Corneum', product: 'Aqua Repair MTS Serum' },
   ];
 
   return (
@@ -126,8 +126,8 @@ export function IngredientOrbit() {
 
             <div className="space-y-2 pt-6 border-t border-cream-deep/5">
               <div className="flex justify-between items-center font-mono text-[7.5px] uppercase tracking-[1.5px] text-cream-deep/30">
-                <span>Weight</span>
-                <span className="text-cream-deep/50">{ing.weight}</span>
+                <span>Capacity</span>
+                <span className="text-cream-deep/50">{ing.capacity}</span>
               </div>
               <div className="flex justify-between items-center font-mono text-[7.5px] uppercase tracking-[1.5px] text-cream-deep/30">
                 <span>Phase</span>

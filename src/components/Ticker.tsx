@@ -6,7 +6,7 @@ export default function Ticker() {
     launchProducts[1]?.displayName ?? 'Launch Mask',
     '16 Product Clinical Range',
     launchProducts[0]?.displayName ?? 'Recovery Mask',
-    'Precision Skin. Calm Routine.',
+    'Precision Skin. Pure Science.',
     'Made in Korea',
     `${orderedProducts.length} Products / One Routine`,
   ];
